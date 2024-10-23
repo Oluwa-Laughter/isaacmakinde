@@ -11,6 +11,7 @@ import { VscVscode } from "react-icons/vsc";
 import { FaFigma } from "react-icons/fa";
 import { SiMui } from "react-icons/si";
 import { FaBootstrap } from "react-icons/fa";
+import { SiFramer } from "react-icons/si";
 import { FaGithub } from "react-icons/fa";
 import { FaSass } from "react-icons/fa";
 import { SiRedux } from "react-icons/si";
@@ -78,10 +79,16 @@ const SKILLS = [
     color: "#F24E1E",
   },
   {
+    title: "Framer Motion",
+    icon: <SiFramer />,
+    color: "#8000ff",
+  },
+  {
     title: "SASS",
     icon: <FaSass />,
     color: "#CC6699",
   },
+
   {
     title: "Redux",
     icon: <SiRedux />,
@@ -105,82 +112,79 @@ const Skills = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.5,
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
       },
     },
   };
 
   const skillVariants = {
     hidden: {
-      y: 20,
-      opacity: 0,
+      scale: 0,
+      rotate: -180,
     },
     visible: {
-      y: 0,
-      opacity: 1,
+      scale: 1,
+      rotate: 0,
       transition: {
         type: "spring",
-        stiffness: 100,
+        duration: 0.8,
       },
     },
     hover: {
       scale: 1.1,
-      rotate: [0, -5, 5, 0],
       transition: {
         type: "spring",
         stiffness: 300,
+        damping: 10,
       },
     },
   };
 
-  const iconVariants = (duration) => ({
-    initial: { y: -10 },
-    animate: {
-      y: [10, -10],
+  const titleVariants = {
+    hidden: { scale: 0.5, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
       transition: {
-        duration: duration,
-        ease: "linear",
-        repeat: Infinity,
-        repeatType: "reverse",
+        duration: 0.5,
+        ease: "easeOut",
       },
     },
-  });
+  };
 
   return (
     <motion.section
       className="border-b border-neutral-900 pb-24"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.4 }}
+      viewport={{ once: true, amount: 0.2 }}
     >
       <motion.h2
+        variants={titleVariants}
         className="my-20 text-center text-4xl font-semibold uppercase"
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
       >
         Skills
       </motion.h2>
       <motion.div
-        className="flex flex-wrap justify-center gap-4 items-center"
         variants={containerVariants}
+        className="flex flex-wrap justify-center gap-4 items-center"
       >
         {SKILLS.map((skill) => (
           <motion.div
             key={skill.title}
-            className="flex flex-col items-center justify-center gap-4 p-4 border-4 border-neutral-800 rounded-2xl"
-            variants={{
-              ...iconVariants(1),
-              ...skillVariants,
-            }}
-            initial="initial"
-            animate="animate"
+            variants={skillVariants}
             whileHover="hover"
+            className="flex flex-col items-center justify-center gap-4 p-4 border-4 border-neutral-800 rounded-2xl backdrop-blur-sm"
           >
-            <div className="text-4xl font-bold" style={{ color: skill.color }}>
+            <motion.div
+              className="text-4xl font-bold"
+              style={{ color: skill.color }}
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.4 }}
+            >
               {skill.icon}
-            </div>
+            </motion.div>
             <p className="text-neutral-400 tracking-tight text-sm font-semibold">
               {skill.title}
             </p>

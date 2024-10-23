@@ -78,8 +78,8 @@ export const PROJECTS = [
     description:
       "A fully-featured e-commerce platform allowing users to browse products, add items to the cart and complete purchases. The project demonstrates proficiency in ReactJS, responsive design and complex state management.",
     technologies: ["ReactJS", "JavaScript", "TailwindCss", "Redux", "Node.Js"],
-    github: "",
-    live: "",
+    github: "https://github.com/Oluwa-Laughter/iM-store",
+    live: "https://imstore.vercel.app/",
   },
   {
     title: "Streamnest",
@@ -87,8 +87,8 @@ export const PROJECTS = [
     description:
       "A YouTube clone built using ReactJS, Material UI and Rapid API. This project demonstrates how to fetch videos and display them dynamically using external APIs, with features like video search and a sleek user interface.",
     technologies: ["ReactJS", "Material UI", "JavaScript", "Rapid API"],
-    github: "",
-    live: "",
+    github: "https://github.com/Oluwa-Laughter/streamnest",
+    live: "https://isaac-streamnest.vercel.app/",
   },
   {
     title: "React Interactive Quiz App",
@@ -96,8 +96,8 @@ export const PROJECTS = [
     description:
       "An interactive quiz application built with ReactJS, featuring dynamic questions, real-time score updates and user feedback. The app includes a timer and the questions is based on basic knowledge of ReactJS, state management and event handling.",
     technologies: ["ReactJS", "JavaScript", "CSS"],
-    github: "",
-    live: "",
+    github: "https://github.com/Oluwa-Laughter/react-interactive-quiz-app",
+    live: "https://isaac-react-quiz.vercel.app/",
   },
   {
     title: "Interactive Card Details",
@@ -114,7 +114,7 @@ export const PROJECTS = [
     description:
       "A product card details application built with React, utilizing useState and useEffect hooks for state management and styled-components for styling. Features include adding/removing items from the cart, updating quantity, order confirmation, and resetting the cart. The design is responsive, with hover and focus states for interactivity.",
     technologies: ["ReactJS", "Styled-components", "JavaScript", "CSS"],
-    github: "",
-    live: "",
+    github: "https://github.com/Oluwa-Laughter/product-card-details",
+    live: "https://isaac-product-card-details.vercel.app/",
   },
 ];
