@@ -6,9 +6,24 @@ const Footer = () => {
   return (
     <footer className="flex items-center justify-between">
       <div className="py-8 flex items-center justify-center gap-4 text-2xl">
-        <FaGithub />
-        <FaSquareXTwitter />
-        <FaLinkedin />
+        <a
+          href="https://github.com/oluwa-laughter"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <FaGithub />
+        </a>
+        <a href="https://x.com/isaacmakinde_" target="_blank" rel="noreferrer">
+          <FaSquareXTwitter />
+        </a>
+
+        <a
+          href="https://linkedin.com/in/isaacmakinde"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <FaLinkedin />
+        </a>
       </div>
 
       <div className="flex flex-col items-center gap-2">

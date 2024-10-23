@@ -3,7 +3,9 @@ import { EXPERIENCES } from "../constants";
 const Experience = () => {
   return (
     <section className="border-b border-neutral-900 pb-4">
-      <h2 className="my-20 text-center text-4xl underline">Experience</h2>
+      <h2 className="my-20 text-center text-4xl font-semibold uppercase">
+        Experience
+      </h2>
       <div className="flex flex-col items-center">
         {EXPERIENCES.map((experience, index) => (
           <div
@@ -19,7 +21,9 @@ const Experience = () => {
                 {experience.role} -{" "}
                 <span className="text-purple-300">{experience.company}</span>
               </h5>
-              <p className="mb-4 text-neutral-400">{experience.description}</p>
+              <p className="mb-4 text-neutral-400 lg:text-lg text-md">
+                {experience.description}
+              </p>
               <div className="flex flex-wrap">
                 {experience.technologies.map((skill, index) => (
                   <span

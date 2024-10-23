@@ -118,9 +118,3 @@ export const PROJECTS = [
     live: "",
   },
 ];
-
-export const CONTACT = {
-  address: "Lagos, Nigeria",
-  phoneNo: "+234 805 374 4603",
-  email: "ismakinde@gmail.com",
-};

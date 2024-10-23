@@ -4,7 +4,9 @@ import { MdArrowOutward } from "react-icons/md";
 const Projects = () => {
   return (
     <section className="border-b border-neutral-900 pb-4">
-      <h2 className="my-20 text-center text-4xl underline">Projects</h2>
+      <h2 className="my-20 text-center text-4xl font-semibold uppercase">
+        Projects
+      </h2>
       <article>
         {PROJECTS.map((project, index) => (
           <div key={index} className="flex flex-wrap lg:justify-center mb-8 ">
@@ -19,7 +21,9 @@ const Projects = () => {
             </div>
             <div className="w-full max-w-xl lg:w-3/5">
               <h5 className="mb-2 text-2xl font-bold">{project.title}</h5>
-              <p className="mb-4 text-neutral-400">{project.description}</p>
+              <p className="mb-4 text-neutral-400 lg:text-lg text-md ">
+                {project.description}
+              </p>
               <div className="mb-4 flex flex-wrap">
                 {project.technologies.map((tech, index) => (
                   <span

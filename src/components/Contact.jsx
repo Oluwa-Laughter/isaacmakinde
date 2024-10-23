@@ -1,5 +1,5 @@
 import { ImWhatsapp } from "react-icons/im";
-import { FaPhoneFlip } from "react-icons/fa6";
+import { FaPhoneVolume } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
 
 const contactInfo = [
@@ -9,7 +9,7 @@ const contactInfo = [
     text: "ismakinde@gmail.com",
   },
   {
-    icon: <FaPhoneFlip />,
+    icon: <FaPhoneVolume />,
     link: "tel:+2348053744603",
     text: "08053744603",
   },
@@ -23,7 +23,9 @@ const contactInfo = [
 const Contact = () => {
   return (
     <section className="border-b border-neutral-900 pb-4">
-      <h2 className="my-10 text-center text-4xl underline">Contacts</h2>
+      <h2 className="my-10 text-center text-4xl font-semibold uppercase">
+        Contact
+      </h2>
       <h3 className="text-center text-md">
         I can help you create, improve or build the product experience for your
         new or existing products. Feel free to get in touch with me.
