@@ -41,30 +41,34 @@ export const SERVICES = [
 
 export const EXPERIENCES = [
   {
-    year: "2024 - Present",
+    year: "2023 - Present",
     role: "Frontend Developer",
     company: "Freelance/Personal Projects",
     description: `Worked on various frontend projects utilizing ReactJS, JavaScript, TaiwindCSS, Styled Components and Material UI. Developed custom, scalable components with a focus on UI/UX and responsive design. Built a YouTube application clone—Streamnest—and various task management systems, gaining hands-on experience with state management, props, hooks and API integration.`,
     technologies: [
       "ReactJS",
       "JavaScript",
+      "Node.js",
       "Material UI",
       "Styled Components",
-      "CSS",
-      "Git & GitHub",
     ],
   },
   {
-    year: "2024 - Present",
+    year: "2024",
     role: "Frontend Developer",
     company: "Web3Bridge",
     description: `Contributed to the development of a fully functional e-commerce platform as part of a capstone project. Implemented product listings, cart features and checkout functionality. Worked on complex applications, using a desktop-first design approach. This experience reinforced my knowledge of React components and Frontend development best practices.`,
-    technologies: ["ReactJS", "JavaScript", "CSS", "Tailwind CSS", "Git"],
+    technologies: [
+      "ReactJS",
+      "JavaScript",
+      "CSS",
+      "Tailwind CSS",
+      "Git & GitHub",
+    ],
   },
 ];
 
 // export const PROJECTS = [
-//
 //   {
 //     title: "Task Management App",
 //     image: project2,
