@@ -20,7 +20,7 @@ const Experience = () => {
                 <span className="text-purple-300">{experience.company}</span>
               </h5>
               <p className="mb-4 text-neutral-400">{experience.description}</p>
-              <div className="flex flex-wrap ">
+              <div className="flex flex-wrap">
                 {experience.technologies.map((skill, index) => (
                   <span
                     key={index}
