@@ -111,7 +111,9 @@ const Skills = () => {
             <div className="text-4xl font-bold" style={{ color: skill.color }}>
               {skill.icon}
             </div>
-            <p className="text-sm font-light">{skill.title}</p>
+            <p className="text-neutral-400 tracking-tight text-sm font-semibold">
+              {skill.title}
+            </p>
           </div>
         ))}
       </div>

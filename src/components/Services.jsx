@@ -12,10 +12,10 @@ const Services = () => {
             key={service.title}
             className="flex flex-col items-center justify-center gap-8 p-4 border-4 border-neutral-800 rounded-2xl"
           >
-            <h3 className="text-2xl lg:text-3xl text-center font-semibold ">
+            <h3 className="text-2xl text-center font-bold tracking-tight ">
               {service.title}
             </h3>
-            <p className="text-sm  font-light lg:text-lg text-center">
+            <p className="text-neutral-400 font-light text-lg text-center">
               {service.description}
             </p>
           </div>
