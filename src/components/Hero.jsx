@@ -47,11 +47,11 @@ const Hero = () => {
             </motion.p>
 
             <motion.a
-              variants={container(1.5)}
+              variants={container(1.3)}
               whileHover={{ scale: 1.04 }}
               initial="hidden"
               whileInView="visible"
-              href=""
+              href="https://docs.google.com/document/d/10PhdoUC8RYMamfLZ0p9vRagneBsDYzSv5t7KjBxbhz4/edit?usp=sharing"
               target="_blank"
               className="flex items-center gap-2 border-4 max-w-fit text-center border-neutral-700 rounded-md p-2"
             >
