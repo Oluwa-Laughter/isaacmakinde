@@ -22,7 +22,7 @@ Welcome to my personal portfolio! This project showcases my frontend development
 
 1.  Fork
 2.  Clone the forked repository to your local machine using `git clone`.
-3.  Navigate to the project directory: `cd vickyjay`.
+3.  Navigate to the project directory: `cd isaacmakinde`.
 4.  Install project dependencies using `npm install`.
 5.  Start the development server: `npm run dev`.
 6.  Open your web browser and navigate to `http://localhost:5173` to view the portfolio.
@@ -36,5 +36,7 @@ Feel free to customize this portfolio to showcase your own projects and skills. 
 If you have any questions or would like to get in touch, you can reach me at:
 
 - Email: ismakinde@gmail.com
+- Linkedin: [Isaac Makinde](https://www.linkedin.com/in/isaacmakinde/)
+- X (Formerly Twitter): [isaacmakinde](https://twitter.com/isaacmakinde_)
 - GitHub: [Oluwa-Laughter](https://github.com/Oluwa-Laughter)
-- Portfolio: [preview](https://isaacmakinde.vercel.app)
+- Portfolio: [Isaac Makinde](https://isaacmakinde.vercel.app)
