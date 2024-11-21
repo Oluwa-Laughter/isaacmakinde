@@ -6,10 +6,14 @@ import { SiTypescript } from "react-icons/si";
 import { SiTailwindcss } from "react-icons/si";
 import { FaNodeJs } from "react-icons/fa";
 import { FaGitAlt } from "react-icons/fa";
+import { RiSupabaseFill } from "react-icons/ri";
+import { IoLogoVercel } from "react-icons/io5";
 import { FaNpm } from "react-icons/fa";
 import { VscVscode } from "react-icons/vsc";
 import { FaFigma } from "react-icons/fa";
 import { SiMui } from "react-icons/si";
+import { SiNetlify } from "react-icons/si";
+import { RiFirebaseFill } from "react-icons/ri";
 import { FaBootstrap } from "react-icons/fa";
 import { SiFramer } from "react-icons/si";
 import { FaGithub } from "react-icons/fa";
@@ -68,6 +72,37 @@ const SKILLS = [
     icon: <FaNpm />,
     color: "#CB3837",
   },
+
+  {
+    title: "SASS",
+    icon: <FaSass />,
+    color: "#CC6699",
+  },
+
+  {
+    title: "Supabase",
+    icon: <RiSupabaseFill />,
+    color: "#3ECF8E",
+  },
+
+  {
+    title: "Firebase",
+    icon: <RiFirebaseFill />,
+    color: "#FFCA28",
+  },
+
+  {
+    title: "Vercel",
+    icon: <IoLogoVercel />,
+    color: "#fff",
+  },
+
+  {
+    title: "Netlify",
+    icon: <SiNetlify />,
+    color: "#00C7B7",
+  },
+
   {
     title: "VS Code",
     icon: <VscVscode />,
@@ -82,11 +117,6 @@ const SKILLS = [
     title: "Framer Motion",
     icon: <SiFramer />,
     color: "#8000ff",
-  },
-  {
-    title: "SASS",
-    icon: <FaSass />,
-    color: "#CC6699",
   },
 
   {

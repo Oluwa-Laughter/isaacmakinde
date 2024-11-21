@@ -47,7 +47,7 @@ const Hero = () => {
             </motion.p>
 
             <motion.a
-              variants={container(1.3)}
+              variants={container(1.2)}
               whileHover={{ scale: 1.04 }}
               initial="hidden"
               whileInView="visible"

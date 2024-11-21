@@ -3,6 +3,7 @@ import project2 from "../assets/projects/project2.png";
 import project3 from "../assets/projects/project3.png";
 import project4 from "../assets/projects/project4.png";
 import project5 from "../assets/projects/project5.png";
+import project6 from "../assets/projects/project6.png";
 
 export const HERO_CONTENT = `I'm a result driven Frontend Developer with a strong foundation in building modern, responsive and dynamic web applications. With a keen enthusiasm for problem-solving, I'm dedicated to creating efficient, scalable and visually engaging digital experiences. As I expand my expertise into Blockchain and Web3 development, my goal is to build the decentralized applications (dApps) of the future, combining cutting-edge technology with seamless user experiences.`;
 
@@ -116,5 +117,21 @@ export const PROJECTS = [
     technologies: ["ReactJS", "Styled-components", "JavaScript", "CSS"],
     github: "https://github.com/Oluwa-Laughter/product-card-details",
     live: "https://isaac-product-card-details.vercel.app/",
+  },
+
+  {
+    title: "Shortly",
+    image: project6,
+    description:
+      "A URL shortening application where users can generate short URLs from long ones. The backend is powered by Supabase for storing and retrieving URL , while Vercel handles redirection. Features include URL validation, error handling, and dynamic updates to the user interface. The app ensures a smooth and intuitive user experience.",
+    technologies: [
+      "ReactJS",
+      "Supabase",
+      "Vercel",
+      "JavaScript",
+      "TailwindCss",
+    ],
+    github: "https://github.com/Oluwa-Laughter/shortly",
+    live: "https://im-short.vercel.app/",
   },
 ];
