@@ -47,9 +47,9 @@ export const EXPERIENCES = [
     year: "2023 - Present",
     role: "Frontend Developer",
     company: "Freelance/Personal Projects",
-    description: `Worked on various frontend projects utilizing ReactJS, JavaScript, TaiwindCSS, Styled Components and Material UI. Developed custom, scalable components with a focus on UI/UX and responsive design. Built a YouTube application clone—Streamnest—and various task management systems, gaining hands-on experience with state management, props, hooks and API integration.`,
+    description: `Worked on various frontend projects utilizing React.js, JavaScript, TaiwindCSS, Styled Components and Material UI. Developed custom, scalable components with a focus on UI/UX and responsive design. Built a YouTube application clone—Streamnest—and various task management systems, gaining hands-on experience with state management, props, hooks and API integration.`,
     technologies: [
-      "ReactJS",
+      "React.js",
       "JavaScript",
       "Node.js",
       "Material UI",
@@ -62,7 +62,7 @@ export const EXPERIENCES = [
     company: "Web3Bridge",
     description: `Contributed to the development of a fully functional e-commerce platform as part of a capstone project. Implemented product listings, cart features and checkout functionality. Worked on complex applications, using a desktop-first design approach. This experience reinforced my knowledge of React components and Frontend development best practices.`,
     technologies: [
-      "ReactJS",
+      "React.js",
       "JavaScript",
       "Tailwind CSS",
       "Redux",
@@ -77,8 +77,8 @@ export const PROJECTS = [
     title: "iM-Store",
     image: project1,
     description:
-      "A fully-featured e-commerce platform allowing users to browse products, add items to the cart and complete purchases. The project demonstrates proficiency in ReactJS, responsive design and complex state management.",
-    technologies: ["ReactJS", "JavaScript", "TailwindCss", "Redux", "Node.Js"],
+      "A fully-featured e-commerce platform allowing users to browse products, add items to the cart and complete purchases. The project demonstrates proficiency in React.js, responsive design and complex state management.",
+    technologies: ["React.js", "JavaScript", "TailwindCss", "Redux", "Node.js"],
     github: "https://github.com/Oluwa-Laughter/iM-store",
     live: "https://imstore.vercel.app/",
   },
@@ -86,8 +86,8 @@ export const PROJECTS = [
     title: "Streamnest",
     image: project2,
     description:
-      "A YouTube clone built using ReactJS, Material UI and Rapid API. This project demonstrates how to fetch videos and display them dynamically using external APIs, with features like video search and a sleek user interface.",
-    technologies: ["ReactJS", "Material UI", "JavaScript", "Rapid API"],
+      "A YouTube clone built using React.js, Material UI and Rapid API. This project demonstrates how to fetch videos and display them dynamically using external APIs, with features like video search and a sleek user interface.",
+    technologies: ["React.js", "Material UI", "JavaScript", "Rapid API"],
     github: "https://github.com/Oluwa-Laughter/streamnest",
     live: "https://isaac-streamnest.vercel.app/",
   },
@@ -95,8 +95,8 @@ export const PROJECTS = [
     title: "React Interactive Quiz App",
     image: project3,
     description:
-      "An interactive quiz application built with ReactJS, featuring dynamic questions, real-time score updates and user feedback. The app includes a timer and the questions is based on basic knowledge of ReactJS, state management and event handling.",
-    technologies: ["ReactJS", "JavaScript", "CSS"],
+      "An interactive quiz application built with React.js, featuring dynamic questions, real-time score updates and user feedback. The app includes a timer and the questions is based on basic knowledge of React.js, state management and event handling.",
+    technologies: ["React.js", "JavaScript", "CSS"],
     github: "https://github.com/Oluwa-Laughter/react-interactive-quiz-app",
     live: "https://isaac-react-quiz.vercel.app/",
   },
@@ -105,7 +105,7 @@ export const PROJECTS = [
     image: project4,
     description:
       "A form validation app that allows users to input ATM card details, including cardholder name, card number, expiry date, and CVC. The form updates in real time, with error handling for empty fields and incorrect input formats. The design is responsive, offering optimal layouts for various screen sizes.",
-    technologies: ["ReactJS", "Form Validation", "JavaScript", "CSS"],
+    technologies: ["React.js", "Form Validation", "JavaScript", "CSS"],
     github: "https://github.com/Oluwa-Laughter/interactive-card-details",
     live: "https://isaac-interactive-card.vercel.app/",
   },
@@ -114,7 +114,7 @@ export const PROJECTS = [
     image: project5,
     description:
       "A product card details application built with React, utilizing useState and useEffect hooks for state management and styled-components for styling. Features include adding/removing items from the cart, updating quantity, order confirmation, and resetting the cart. The design is responsive, with hover and focus states for interactivity.",
-    technologies: ["ReactJS", "Styled-components", "JavaScript", "CSS"],
+    technologies: ["React.js", "Styled-components", "JavaScript", "CSS"],
     github: "https://github.com/Oluwa-Laughter/product-card-details",
     live: "https://isaac-product-card-details.vercel.app/",
   },
@@ -125,7 +125,7 @@ export const PROJECTS = [
     description:
       "A URL shortening application where users can generate short URLs from long ones. The backend is powered by Supabase for storing and retrieving URL , while Vercel handles redirection. Features include URL validation, error handling, and dynamic updates to the user interface. The app ensures a smooth and intuitive user experience.",
     technologies: [
-      "ReactJS",
+      "React.js",
       "Supabase",
       "Vercel",
       "JavaScript",

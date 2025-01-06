@@ -14,7 +14,6 @@ import { FaFigma } from "react-icons/fa";
 import { SiMui } from "react-icons/si";
 import { SiNetlify } from "react-icons/si";
 import { RiFirebaseFill } from "react-icons/ri";
-import { FaBootstrap } from "react-icons/fa";
 import { SiFramer } from "react-icons/si";
 import { FaGithub } from "react-icons/fa";
 import { FaSass } from "react-icons/fa";
@@ -38,7 +37,7 @@ const SKILLS = [
     color: "#F7DF1E",
   },
   {
-    title: "ReactJS",
+    title: "React.js",
     icon: <RiReactjsLine />,
     color: "#61DAFB",
   },
@@ -114,7 +113,7 @@ const SKILLS = [
     color: "#F24E1E",
   },
   {
-    title: "Framer Motion",
+    title: "Framer",
     icon: <SiFramer />,
     color: "#8000ff",
   },
@@ -123,11 +122,6 @@ const SKILLS = [
     title: "Redux",
     icon: <SiRedux />,
     color: "#764ABC",
-  },
-  {
-    title: "Bootstrap",
-    icon: <FaBootstrap />,
-    color: "#7952B3",
   },
   {
     title: "Material UI",
@@ -211,7 +205,7 @@ const Skills = () => {
       </motion.h2>
       <motion.div
         variants={containerVariants}
-        className="flex flex-wrap justify-center gap-4 items-center"
+        className=" max-w-2xl mx-auto flex flex-wrap justify-center gap-4 items-center"
       >
         {SKILLS.map((skill) => (
           <motion.div
@@ -223,7 +217,7 @@ const Skills = () => {
             initial="initial"
             animate="animate"
             whileHover="hover"
-            className="flex flex-col items-center justify-center gap-4 p-4 border-4 border-neutral-800 rounded-2xl backdrop-blur-sm"
+            className="flex flex-col items-center justify-center p-4 gap-2 border-4 border-neutral-800 rounded-2xl backdrop-blur-sm"
           >
             <motion.div
               className="text-4xl font-bold"
