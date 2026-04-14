@@ -25,17 +25,18 @@ const App = () => {
 
       <NavBar />
 
-      <main className="container mx-auto px-6 lg:px-8">
-        <Hero />
-        <Services />
-      </main>
+      <main>
+        <div className="container mx-auto px-6 lg:px-8">
+          <Hero />
+          <Services />
+        </div>
 
-      {/* Skills is full-width for the marquee scroll effect */}
-      <Skills />
+        <Skills />
 
-      <main className="container mx-auto px-6 lg:px-8">
-<Projects />
-        <Contact />
+        <div className="container mx-auto px-6 lg:px-8">
+          <Projects />
+          <Contact />
+        </div>
       </main>
 
       <Footer />

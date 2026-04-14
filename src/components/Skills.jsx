@@ -59,7 +59,10 @@ const SkillCard = ({ skill }) => (
 
 const Skills = () => {
   return (
-    <section id="skills" className="border-b border-white/10 py-24 overflow-hidden">
+    <section
+      id="skills"
+      className="border-b border-white/10 py-24 overflow-hidden"
+    >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -67,9 +70,6 @@ const Skills = () => {
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <span className="text-xs font-semibold tracking-[0.3em] text-cyan-400 uppercase">
-          Tech Stack
-        </span>
         <h2 className="mt-3 text-4xl font-bold text-white">Skills</h2>
       </motion.div>
 

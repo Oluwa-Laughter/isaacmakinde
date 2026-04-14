@@ -13,12 +13,7 @@ const Projects = () => {
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <span className="text-xs font-semibold tracking-[0.3em] text-cyan-400 uppercase">
-          Portfolio
-        </span>
-        <h2 className="mt-3 text-4xl font-bold text-white">
-          Featured Projects
-        </h2>
+        <h2 className="mt-3 text-4xl font-bold text-white">Projects</h2>
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

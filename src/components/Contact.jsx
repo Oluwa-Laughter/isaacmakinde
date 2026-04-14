@@ -34,9 +34,6 @@ const Contact = () => {
         viewport={{ once: true }}
         className="text-center mb-12"
       >
-        <span className="text-xs font-semibold tracking-[0.3em] text-cyan-400 uppercase">
-          Get in touch
-        </span>
         <h2 className="mt-3 text-4xl font-bold text-white">
           Let&apos;s Connect
         </h2>

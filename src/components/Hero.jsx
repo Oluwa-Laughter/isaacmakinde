@@ -11,16 +11,12 @@ const fadeUp = (delay) => ({
   },
 });
 
-const CodeLine = ({ children }) => (
-  <div className="leading-7">{children}</div>
-);
+const CodeLine = ({ children }) => <div className="leading-7">{children}</div>;
 
 const Kw = ({ children }) => (
   <span className="text-violet-400">{children}</span>
 );
-const Fn = ({ children }) => (
-  <span className="text-cyan-400">{children}</span>
-);
+const Fn = ({ children }) => <span className="text-cyan-400">{children}</span>;
 const Str = ({ children }) => (
   <span className="text-amber-300">"{children}"</span>
 );
@@ -55,7 +51,12 @@ const CodePanel = () => (
     {/* Floating badge — bottom left */}
     <motion.div
       animate={{ y: [0, 6, 0] }}
-      transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+      transition={{
+        duration: 3.5,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: 0.5,
+      }}
       className="absolute -bottom-4 -left-4 z-10 flex items-center gap-2 bg-[#0d0d1a] border border-white/10 rounded-xl px-3 py-2 text-xs font-semibold shadow-lg"
     >
       <span className="text-violet-400">🚀</span>
@@ -118,16 +119,26 @@ const CodePanel = () => (
             <Plain>{"    "}</Plain>
             <Prop>focus</Prop>
             <Plain>: [</Plain>
-            <Str>React</Str>
+            <Str>Next.js</Str>
+            <Plain>, </Plain>
+            <Str>React.js</Str>
+            <Plain>, </Plain>
+            <Str>TypeScript</Str>
+            <Plain>, </Plain>
+            <Str>JavaScript</Str>
+            <Plain>, </Plain>
+            <Str>Tailwind CSS</Str>
             <Plain>, </Plain>
             <Str>Web3</Str>
+            <Plain>, </Plain>
+            <Str>Mathematics</Str>
             <Plain>],</Plain>
           </CodeLine>
           <CodeLine>
             <Plain>{"    "}</Plain>
-            <Prop>loves</Prop>
+            <Prop>love</Prop>
             <Plain>: </Plain>
-            <Str>Clean UIs</Str>
+            <Str>Clean, Scalable and Interactive App</Str>
             <Plain>,</Plain>
           </CodeLine>
           <CodeLine>
@@ -138,7 +149,10 @@ const CodePanel = () => (
             <Plain>,</Plain>
           </CodeLine>
           <CodeLine>
-            <Plain>{"  "}{"}"}</Plain>
+            <Plain>
+              {"  "}
+              {"}"}
+            </Plain>
           </CodeLine>
           <CodeLine>
             <Plain>{"}"}</Plain>

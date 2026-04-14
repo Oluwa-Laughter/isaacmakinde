@@ -27,7 +27,7 @@ const NavBar = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-[#050510]/80 backdrop-blur-xl border-b border-white/10 py-3"
+          ? "bg-[#050510]/80 backdrop-blur-xl py-3"
           : "py-5"
       }`}
     >

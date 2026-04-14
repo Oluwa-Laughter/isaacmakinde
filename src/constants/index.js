@@ -78,7 +78,13 @@ export const PROJECTS = [
     image: project1,
     description:
       "A fully-featured e-commerce platform allowing users to browse products, add items to the cart and complete purchases. The project demonstrates proficiency in React.js, responsive design and complex state management.",
-    technologies: ["React.js", "JavaScript", "TailwindCss", "Redux", "Node.js"],
+    technologies: [
+      "React.js",
+      "JavaScript",
+      "Tailwind CSS",
+      "Redux",
+      "Node.js",
+    ],
     github: "https://github.com/Oluwa-Laughter/iM-store",
     live: "https://imstore.vercel.app/",
   },
@@ -91,33 +97,6 @@ export const PROJECTS = [
     github: "https://github.com/Oluwa-Laughter/streamnest",
     live: "https://isaac-streamnest.vercel.app/",
   },
-  {
-    title: "React Interactive Quiz App",
-    image: project3,
-    description:
-      "An interactive quiz application built with React.js, featuring dynamic questions, real-time score updates and user feedback. The app includes a timer and the questions is based on basic knowledge of React.js, state management and event handling.",
-    technologies: ["React.js", "JavaScript", "CSS"],
-    github: "https://github.com/Oluwa-Laughter/react-interactive-quiz-app",
-    live: "https://isaac-react-quiz.vercel.app/",
-  },
-  {
-    title: "Interactive Card Details",
-    image: project4,
-    description:
-      "A form validation app that allows users to input ATM card details, including cardholder name, card number, expiry date, and CVC. The form updates in real time, with error handling for empty fields and incorrect input formats. The design is responsive, offering optimal layouts for various screen sizes.",
-    technologies: ["React.js", "Form Validation", "JavaScript", "CSS"],
-    github: "https://github.com/Oluwa-Laughter/interactive-card-details",
-    live: "https://isaac-interactive-card.vercel.app/",
-  },
-  {
-    title: "Product Card Details",
-    image: project5,
-    description:
-      "A product card details application built with React, utilizing useState and useEffect hooks for state management and styled-components for styling. Features include adding/removing items from the cart, updating quantity, order confirmation, and resetting the cart. The design is responsive, with hover and focus states for interactivity.",
-    technologies: ["React.js", "Styled-components", "JavaScript", "CSS"],
-    github: "https://github.com/Oluwa-Laughter/product-card-details",
-    live: "https://isaac-product-card-details.vercel.app/",
-  },
 
   {
     title: "Shortly",
@@ -129,9 +108,50 @@ export const PROJECTS = [
       "Supabase",
       "Vercel",
       "JavaScript",
-      "TailwindCss",
+      "Tailwind CSS",
     ],
     github: "https://github.com/Oluwa-Laughter/shortly",
     live: "https://im-short.vercel.app/",
+  },
+
+  {
+    title: "PayAPI",
+    image: project4,
+    description:
+      "A multi-page payment API landing site built with React.js and React Router. Features smooth client-side navigation across multiple pages including pricing plans and developer-focused content, with a fully responsive layout optimized for all screen sizes.",
+    technologies: [
+      "React.js",
+      "React Router",
+      "JavaScript",
+      "Tailwind CSS",
+      "Vercel",
+    ],
+    github: "https://github.com/Oluwa-Laughter/payapi",
+    live: "https://isaac-payapi.vercel.app",
+  },
+  {
+    title: "Rock, Paper, Scissors",
+    image: project5,
+    description:
+      "A Rock, Paper, Scissors game built as a Frontend Mentor challenge using React.js, React Router and Tailwind CSS. Features include playing against the computer, a bonus Rock, Paper, Scissors, Lizard, Spock mode, persistent score tracking across page refreshes, and a responsive layout for all screen sizes.",
+    technologies: [
+      "React.js",
+      "React Router",
+      "Tailwind CSS",
+      "Vite",
+      "Netlify",
+    ],
+    github: "https://github.com/Oluwa-Laughter/rock-paper-scissors",
+    live: "https://isaac-rps-game.netlify.app/",
+  },
+
+  {
+    title: "React Interactive Quiz App",
+    image: project3,
+    description:
+      "An interactive quiz application built with React.js, featuring dynamic questions, real-time score updates and user feedback. The app includes a timer and the questions is based on basic knowledge of React.js, state management and event handling.",
+    technologies: ["React.js", "JavaScript", "CSS"],
+    github: "https://github.com/Oluwa-Laughter/react-interactive-quiz-app",
+    live: "https://isaac-react-quiz.vercel.app/",
   },
 ];

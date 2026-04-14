@@ -23,9 +23,6 @@ const Services = () => {
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <span className="text-xs font-semibold tracking-[0.3em] text-cyan-400 uppercase">
-          What I Do
-        </span>
         <h2 className="mt-3 text-4xl font-bold text-white">Services</h2>
       </motion.div>
 
