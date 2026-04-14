@@ -26,13 +26,13 @@ const NavBar = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? "bg-[#050510]/80 backdrop-blur-xl py-3"
-          : "py-5"
+        scrolled ? "bg-[#050510]/80 backdrop-blur-xl py-3" : "py-5"
       }`}
     >
       <div className="container mx-auto px-6 lg:px-8 flex items-center justify-between">
-        <img src={isaacWhite} className="h-10 w-auto" alt="Isaac Makinde" />
+        <a href="#">
+          <img src={isaacWhite} className="h-10 w-auto" alt="Isaac Makinde" />
+        </a>
 
         <ul className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
