@@ -1,84 +1,88 @@
 import { PROJECTS } from "../constants";
 import { MdArrowOutward } from "react-icons/md";
+import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const Projects = () => {
   return (
-    <section className="border-b border-neutral-900 pb-4">
-      <motion.h2
+    <section id="projects" className="border-b border-white/10 py-24">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -100 }}
-        transition={{ duration: 0.5 }}
-        className="my-20 text-center text-4xl font-semibold uppercase "
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-center mb-16"
       >
-        Projects
-      </motion.h2>
-      <article>
+        <span className="text-xs font-semibold tracking-[0.3em] text-cyan-400 uppercase">
+          Portfolio
+        </span>
+        <h2 className="mt-3 text-4xl font-bold text-white">
+          Featured Projects
+        </h2>
+      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {PROJECTS.map((project, index) => (
-          <div key={index} className="flex flex-wrap lg:justify-center mb-8 ">
-            <motion.div
-              whileInView={{ opacity: 1, x: 0 }}
-              initial={{ opacity: 0, x: -100 }}
-              transition={{ duration: 1 }}
-              className="w-full lg:w-1/5"
-            >
+          <motion.article
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.08 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -6 }}
+            className="group flex flex-col rounded-2xl overflow-hidden bg-white/[0.03] border border-white/10 hover:border-cyan-400/40 transition-all duration-300"
+          >
+            {/* Project Image */}
+            <div className="relative overflow-hidden h-48 flex-shrink-0">
               <img
                 src={project.image}
-                width={200}
-                height={200}
                 alt={project.title}
-                className="mb-6 rounded-xl"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-            </motion.div>
-            <motion.div
-              whileInView={{ opacity: 1, x: 0 }}
-              initial={{ opacity: 0, x: 100 }}
-              transition={{ duration: 1 }}
-              className="w-full max-w-xl lg:w-3/5"
-            >
-              <h5 className="mb-2 text-2xl font-bold  ">{project.title}</h5>
-              <p className="mb-4 text-neutral-400 lg:text-lg text-md ">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050510] via-[#050510]/40 to-transparent"></div>
+            </div>
+
+            {/* Content */}
+            <div className="flex flex-col flex-1 p-5 gap-3">
+              <h3 className="text-lg font-bold text-white">{project.title}</h3>
+
+              <p className="text-neutral-400 text-sm leading-relaxed flex-1">
                 {project.description}
               </p>
-              <div className="mb-4 flex flex-wrap">
-                {project.technologies.map((tech, index) => (
+
+              <div className="flex flex-wrap gap-1.5">
+                {project.technologies.map((tech) => (
                   <span
-                    key={index}
-                    className="mr-2
-                    mt-2
-                    rounded
-                    text-purple-800
-                    bg-neutral-900
-                    px-2
-                    py-1
-                    text-center
-                    text-sm"
+                    key={tech}
+                    className="text-xs px-2 py-1 rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/20"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
 
-              <div className="flex flex-wrap gap-3 items-center">
+              <div className="flex gap-3 pt-1">
                 <a
                   href={project.github}
                   target="_blank"
-                  className="flex items-center gap-2 border-4 border-neutral-700 rounded-md px-2 py-1"
+                  rel="noreferrer"
+                  className="flex items-center gap-1.5 text-xs font-medium text-neutral-400 hover:text-cyan-400 transition-colors border border-white/10 hover:border-cyan-400/30 rounded-lg px-3 py-1.5"
                 >
-                  Github <MdArrowOutward />
+                  <FaGithub /> GitHub
                 </a>
                 <a
                   href={project.live}
                   target="_blank"
-                  className="flex items-center gap-2 border-4 border-neutral-700 rounded-md px-2 py-1"
+                  rel="noreferrer"
+                  className="flex items-center gap-1.5 text-xs font-medium text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 rounded-lg px-3 py-1.5 hover:bg-cyan-500/20 transition-all"
                 >
-                  Live <MdArrowOutward />
+                  Live Demo <MdArrowOutward />
                 </a>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.article>
         ))}
-      </article>
+      </div>
     </section>
   );
 };

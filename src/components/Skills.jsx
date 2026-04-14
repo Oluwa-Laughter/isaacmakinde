@@ -21,219 +21,76 @@ import { SiRedux } from "react-icons/si";
 import { motion } from "framer-motion";
 
 const SKILLS = [
-  {
-    title: "HTML",
-    icon: <FaHtml5 />,
-    color: "#E34F26",
-  },
-  {
-    title: "CSS",
-    icon: <FaCss3Alt />,
-    color: "#1572B6",
-  },
-  {
-    title: "JavaScript",
-    icon: <SiJavascript />,
-    color: "#F7DF1E",
-  },
-  {
-    title: "React.js",
-    icon: <RiReactjsLine />,
-    color: "#61DAFB",
-  },
-  {
-    title: "TypeScript",
-    icon: <SiTypescript />,
-    color: "#3178C6",
-  },
-  {
-    title: "Tailwind CSS",
-    icon: <SiTailwindcss />,
-    color: "#38B2AC",
-  },
-  {
-    title: "Node.js",
-    icon: <FaNodeJs />,
-    color: "#339933",
-  },
-  {
-    title: "Git",
-    icon: <FaGitAlt />,
-    color: "#F05032",
-  },
-  {
-    title: "GitHub",
-    icon: <FaGithub />,
-    color: "#fff",
-  },
-  {
-    title: "NPM",
-    icon: <FaNpm />,
-    color: "#CB3837",
-  },
-
-  {
-    title: "SASS",
-    icon: <FaSass />,
-    color: "#CC6699",
-  },
-
-  {
-    title: "Supabase",
-    icon: <RiSupabaseFill />,
-    color: "#3ECF8E",
-  },
-
-  {
-    title: "Firebase",
-    icon: <RiFirebaseFill />,
-    color: "#FFCA28",
-  },
-
-  {
-    title: "Vercel",
-    icon: <IoLogoVercel />,
-    color: "#fff",
-  },
-
-  {
-    title: "Netlify",
-    icon: <SiNetlify />,
-    color: "#00C7B7",
-  },
-
-  {
-    title: "VS Code",
-    icon: <VscVscode />,
-    color: "#007ACC",
-  },
-  {
-    title: "Figma",
-    icon: <FaFigma />,
-    color: "#F24E1E",
-  },
-  {
-    title: "Framer",
-    icon: <SiFramer />,
-    color: "#8000ff",
-  },
-
-  {
-    title: "Redux",
-    icon: <SiRedux />,
-    color: "#764ABC",
-  },
-  {
-    title: "Material UI",
-    icon: <SiMui />,
-    color: "#007FFF",
-  },
+  { title: "HTML", icon: <FaHtml5 />, color: "#E34F26" },
+  { title: "CSS", icon: <FaCss3Alt />, color: "#1572B6" },
+  { title: "JavaScript", icon: <SiJavascript />, color: "#F7DF1E" },
+  { title: "React.js", icon: <RiReactjsLine />, color: "#61DAFB" },
+  { title: "TypeScript", icon: <SiTypescript />, color: "#3178C6" },
+  { title: "Tailwind CSS", icon: <SiTailwindcss />, color: "#38B2AC" },
+  { title: "Node.js", icon: <FaNodeJs />, color: "#339933" },
+  { title: "Git", icon: <FaGitAlt />, color: "#F05032" },
+  { title: "GitHub", icon: <FaGithub />, color: "#e2e8f0" },
+  { title: "NPM", icon: <FaNpm />, color: "#CB3837" },
+  { title: "SASS", icon: <FaSass />, color: "#CC6699" },
+  { title: "Supabase", icon: <RiSupabaseFill />, color: "#3ECF8E" },
+  { title: "Firebase", icon: <RiFirebaseFill />, color: "#FFCA28" },
+  { title: "Vercel", icon: <IoLogoVercel />, color: "#e2e8f0" },
+  { title: "Netlify", icon: <SiNetlify />, color: "#00C7B7" },
+  { title: "VS Code", icon: <VscVscode />, color: "#007ACC" },
+  { title: "Figma", icon: <FaFigma />, color: "#F24E1E" },
+  { title: "Framer", icon: <SiFramer />, color: "#8000ff" },
+  { title: "Redux", icon: <SiRedux />, color: "#764ABC" },
+  { title: "Material UI", icon: <SiMui />, color: "#007FFF" },
 ];
 
+const row1 = SKILLS.slice(0, 10);
+const row2 = SKILLS.slice(10);
+
+const SkillCard = ({ skill }) => (
+  <div className="flex flex-col items-center justify-center gap-2 px-5 py-4 mx-2 rounded-xl bg-white/[0.04] border border-white/10 min-w-[96px] flex-shrink-0">
+    <div className="text-3xl" style={{ color: skill.color }}>
+      {skill.icon}
+    </div>
+    <span className="text-xs font-medium text-neutral-400 whitespace-nowrap">
+      {skill.title}
+    </span>
+  </div>
+);
+
 const Skills = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const skillVariants = {
-    hidden: {
-      scale: 0,
-      rotate: -180,
-    },
-    visible: {
-      scale: 1,
-      rotate: 0,
-      transition: {
-        type: "spring",
-        duration: 0.8,
-      },
-    },
-    hover: {
-      scale: 1.1,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 10,
-      },
-    },
-  };
-
-  const titleVariants = {
-    hidden: { scale: 0.5, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const iconVariants = (duration) => ({
-    initial: { y: -10 },
-    animate: {
-      y: [10, -10],
-      transition: {
-        duration: duration,
-        ease: "linear",
-        repeat: Infinity,
-        repeatType: "reverse",
-      },
-    },
-  });
-
   return (
-    <motion.section
-      className="border-b border-neutral-900 pb-24"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.5 }}
-    >
-      <motion.h2
-        variants={titleVariants}
-        className="my-20 text-center text-4xl font-semibold uppercase"
-      >
-        Skills
-      </motion.h2>
+    <section id="skills" className="border-b border-white/10 py-24 overflow-hidden">
       <motion.div
-        variants={containerVariants}
-        className=" max-w-2xl mx-auto flex flex-wrap justify-center gap-4 items-center"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-center mb-16"
       >
-        {SKILLS.map((skill) => (
-          <motion.div
-            key={skill.title}
-            variants={{
-              ...iconVariants(1),
-              ...skillVariants,
-            }}
-            initial="initial"
-            animate="animate"
-            whileHover="hover"
-            className="flex flex-col items-center justify-center p-4 gap-2 border-4 border-neutral-800 rounded-2xl backdrop-blur-sm"
-          >
-            <motion.div
-              className="text-4xl font-bold"
-              style={{ color: skill.color }}
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.5 }}
-            >
-              {skill.icon}
-            </motion.div>
-            <p className="text-neutral-400 tracking-tight text-sm font-semibold">
-              {skill.title}
-            </p>
-          </motion.div>
-        ))}
+        <span className="text-xs font-semibold tracking-[0.3em] text-cyan-400 uppercase">
+          Tech Stack
+        </span>
+        <h2 className="mt-3 text-4xl font-bold text-white">Skills</h2>
       </motion.div>
-    </motion.section>
+
+      {/* Row 1 — scrolls left */}
+      <div className="flex mb-4 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <div className="flex animate-marquee">
+          {[...row1, ...row1].map((skill, i) => (
+            <SkillCard key={i} skill={skill} />
+          ))}
+        </div>
+      </div>
+
+      {/* Row 2 — scrolls right */}
+      <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <div className="flex animate-marquee2">
+          {[...row2, ...row2].map((skill, i) => (
+            <SkillCard key={i} skill={skill} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

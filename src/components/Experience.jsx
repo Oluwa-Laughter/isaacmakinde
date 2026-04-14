@@ -3,56 +3,71 @@ import { motion } from "framer-motion";
 
 const Experience = () => {
   return (
-    <section className="border-b border-neutral-900 pb-4">
-      <motion.h2
+    <section id="experience" className="border-b border-white/10 py-24">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -100 }}
-        transition={{ duration: 1.5 }}
-        className="my-20 text-center text-4xl font-semibold uppercase"
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-center mb-16"
       >
-        Experience
-      </motion.h2>
-      <div className="flex flex-col items-center">
-        {EXPERIENCES.map((experience, index) => (
-          <div
-            key={index}
-            className="mb-8 w-full max-w-4xl flex flex-wrap lg:justify-between"
-          >
-            <motion.div
-              whileInView={{ opacity: 1, x: 0 }}
-              initial={{ opacity: 0, x: -100 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="w-full lg:w-1/4 mb-2 lg:mb-0"
-            >
-              <p className="text-neutral-400 text-sm">{experience.year}</p>
-            </motion.div>
+        <span className="text-xs font-semibold tracking-[0.3em] text-cyan-400 uppercase">
+          Career
+        </span>
+        <h2 className="mt-3 text-4xl font-bold text-white">Experience</h2>
+      </motion.div>
 
-            <motion.div
-              whileInView={{ opacity: 1, x: 0 }}
-              initial={{ opacity: 0, x: 100 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="w-full lg:w-3/4"
-            >
-              <h5 className="mb-2 tracking-tight  text-2xl font-bold">
-                {experience.role} -{" "}
-                <span className="text-purple-300">{experience.company}</span>
-              </h5>
-              <p className="mb-4 text-neutral-400 lg:text-lg text-md">
-                {experience.description}
-              </p>
-              <div className="flex flex-wrap">
-                {experience.technologies.map((skill, index) => (
-                  <span
-                    key={index}
-                    className="mr-2 mt-2 rounded text-purple-800 bg-neutral-900 px-2 py-1 text-center text-sm"
-                  >
-                    {skill}
-                  </span>
-                ))}
+      <div className="max-w-4xl mx-auto">
+        <div className="relative">
+          {/* Vertical timeline line */}
+          <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-400/60 via-violet-500/40 to-transparent hidden lg:block"></div>
+
+          {EXPERIENCES.map((experience, index) => (
+            <div key={index} className="relative mb-10 lg:pl-14">
+              {/* Timeline dot */}
+              <div className="hidden lg:flex absolute left-4 top-5 w-3 h-3 rounded-full bg-cyan-400 border-2 border-[#050510] -translate-x-1/2 items-center justify-center z-10">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#050510]"></div>
               </div>
-            </motion.div>
-          </div>
-        ))}
+
+              <motion.div
+                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                viewport={{ once: true }}
+                className="p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-cyan-400/30 transition-colors duration-300"
+              >
+                <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+                  <div>
+                    <h3 className="text-xl font-bold text-white">
+                      {experience.role}
+                    </h3>
+                    <p className="text-cyan-400 font-medium mt-0.5">
+                      {experience.company}
+                    </p>
+                  </div>
+                  <span className="text-xs font-medium text-neutral-400 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 flex-shrink-0">
+                    {experience.year}
+                  </span>
+                </div>
+
+                <p className="text-neutral-400 text-sm leading-relaxed mb-4">
+                  {experience.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                  {experience.technologies.map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-xs px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
