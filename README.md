@@ -9,27 +9,27 @@ A monochrome, editorial one-page portfolio built with **React, Vite, Tailwind CS
 - Motion-based section reveals with reduced-motion support
 - Selected projects and roles sourced from Isaac's frontend CV
 - Email, LinkedIn, GitHub, X, WhatsApp, and working copy-email action
-- Print-friendly résumé at \`/resume.html\`
+- Print-friendly résumé at `/resume.html`
 - Semantic sections, skip link, SEO metadata and keyboard focus styles
 
 ## Run locally
 
-\`\`\`bash
+```bash
 npm ci
 npm run dev
 npm run lint
 npm run build
-\`\`\`
+```
 
-Visit http://localhost:5173. Built output is written to \`dist/\`.
+Visit http://localhost:5173. Built output is written to `dist/`.
 
 ## Updating content
 
-Edit \`src/App.jsx\` to update the projects, work history, skills, and social links. Visual styling and responsive breakpoints are in \`src/index.css\`. The original CV-derived résumé view is in \`public/resume.html\`.
+Edit `src/App.jsx` to update the projects, work history, skills, and social links. Visual styling and responsive breakpoints are in `src/index.css`. The original CV-derived résumé view is in `public/resume.html`.
 
 ## Deployment
 
-The repository is configured for Vercel. Build command: \`npm run build\`. Output directory: \`dist\`.
+The repository is configured for Vercel. Build command: `npm run build`. Output directory: `dist`.
 
 ## Contact
 
