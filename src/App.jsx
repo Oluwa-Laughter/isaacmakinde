@@ -55,9 +55,15 @@ const experience = [
   }
 ];
 const skills = [
-  "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS", "Framer Motion",
-  "TanStack Query", "Redux Toolkit", "shadcn/ui", "Radix UI", "Sanity CMS",
-  "Supabase", "Firebase", "REST APIs", "Figma", "Git & GitHub", "Vercel", "Zod"
+  {name:"JavaScript",icon:SiJavascript},{name:"TypeScript",icon:SiTypescript},
+  {name:"React",icon:SiReact},{name:"Next.js",icon:SiNextdotjs},
+  {name:"Tailwind CSS",icon:SiTailwindcss},{name:"Framer Motion",icon:SiFramer},
+  {name:"Redux Toolkit",icon:SiRedux},{name:"Supabase",icon:SiSupabase},
+  {name:"Firebase",icon:SiFirebase},{name:"Sanity CMS",icon:SiSanity},
+  {name:"Figma",icon:SiFigma},{name:"Git",icon:SiGit},
+  {name:"Vercel",icon:SiVercel},{name:"Node.js",icon:SiNodedotjs},
+  {name:"TanStack Query",icon:FiCode},{name:"shadcn/ui",icon:FiCode},
+  {name:"REST APIs",icon:FiCode},{name:"Zod",icon:FiCode}
 ];
 const navItems = [
   { label: "Work", href: "#work" },
@@ -160,7 +166,7 @@ function Hero() {
     <section id="top" className="hero shell">
       <div className="hero-content">
         <Reveal><div className="eyebrow"><span className="status-dot" /> ISAAC MAKINDE <span className="eyebrow-rule" /> FRONTEND ENGINEER</div></Reveal>
-        <Reveal delay={0.08}><h1>Thoughtful<br />interfaces.<br /><em>Real impact.</em></h1></Reveal>
+        <Reveal delay={0.08}><h1>Building better<br />digital<br /><em>experiences.</em></h1></Reveal>
         <Reveal delay={0.16}>
           <p className="hero-lede">I design and build responsive, accessible and scalable interfaces with React, Next.js and TypeScript. From Figma to production, I bring thoughtful experiences to life.</p>
         </Reveal>
@@ -171,12 +177,14 @@ function Hero() {
         <Reveal delay={0.3}><div className="hero-bottom"><span>BASED IN LAGOS, NIGERIA</span><a href="#work">SCROLL TO EXPLORE <FiArrowDown /></a></div></Reveal>
       </div>
       <Reveal className="portrait-wrap" delay={0.24}>
-        <div className="portrait-frame">
-          <div className="portrait-graphic">IM<span>®</span></div>
-          <img src={portrait} alt="Portrait of Isaac Makinde" className="portrait-photo" />
-          <div className="portrait-line"><span>DESIGN-MINDED</span><span>CODE-DRIVEN</span></div>
+        <div className="portrait-frame hero-abstract" role="img" aria-label="Animated geometric monogram for Isaac Makinde">
+          <div className="abstract-grid" />
+          <motion.div className="abstract-ring ring-a" animate={reduce ? {} : { rotate: 360 }} transition={{ duration: 38, repeat: Infinity, ease: "linear" }} />
+          <motion.div className="abstract-ring ring-b" animate={reduce ? {} : { rotate: -360 }} transition={{ duration: 46, repeat: Infinity, ease: "linear" }} />
+          <motion.div className="abstract-monogram" initial={reduce ? false : { opacity: 0, scale: 0.84 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>IM<span>®</span></motion.div>
+          <div className="abstract-caption">DESIGN × ENGINEERING<br />IDEAS INTO INTERFACES</div>
         </div>
-        <div className="portrait-under"><span>01 / GET TO KNOW ME</span><span>FRONTEND DEVELOPMENT · 2026</span></div>
+        <div className="portrait-under"><span>01 / GET TO KNOW ME</span><span>FRONTEND ENGINEERING / 2026</span></div>
       </Reveal>
       {!reduce && <motion.div className="hero-accent-line" initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 0.3, duration: 1.1 }} />}
     </section>
@@ -246,7 +254,7 @@ function About() {
 function Experience() {
   return (
     <section id="experience" className="section shell experience-section">
-      <SectionHeader number="03" label="THE JOURNEY" heading={<>Where I&apos;ve<br /><em>made things happen.</em></>} />
+      <SectionHeader number="04" label="THE JOURNEY" heading={<>Where I&apos;ve<br /><em>made things happen.</em></>} />
       <div className="experience-list">
         {experience.map((job, index) => (
           <Reveal key={job.company} delay={index * 0.06} className="experience-item">
@@ -264,9 +272,9 @@ function Experience() {
 
 function Toolkit() {
   return (
-    <section className="toolkit-section shell">
-      <Reveal><div className="toolkit-head"><span className="section-kicker"><span>04</span> MY TOOLKIT</span><p>The tools I reach for to build<br />better experiences.</p></div></Reveal>
-      <Reveal><div className="skill-cloud">{skills.map((skill, index) => <span className={index < 6 ? "skill-pill skill-main" : "skill-pill"} key={skill}>{skill}</span>)}</div></Reveal>
+    <section id="skills" className="toolkit-section shell">
+      <Reveal><div className="toolkit-head"><span className="section-kicker"><span>03</span> MY TOOLKIT</span><p>The tools I reach for to build<br />better experiences.</p></div></Reveal>
+      <div className="skill-cloud">{skills.map(({name, icon:Icon}, index) => <Reveal key={name} delay={(index % 6) * 0.035}><motion.div className={index < 6 ? "skill-pill skill-main" : "skill-pill"} whileHover={{ y: -5, scale: 1.025 }} transition={{ duration: 0.23 }}><Icon aria-hidden="true" className="skill-icon" /><span>{name}</span></motion.div></Reveal>)}</div>
     </section>
   );
 }
