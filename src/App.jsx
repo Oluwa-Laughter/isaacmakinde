@@ -286,28 +286,58 @@ function Contact() {
     event.preventDefault();
     if (sending) return;
     const form = event.currentTarget;
-    const payload = new FormData(form);
-    if (payload.get("_honey")) return;
+    const fields = new FormData(form);
+    if (fields.get("_honey")) return;
+    const name = String(fields.get("name") || "").trim();
+    const senderEmail = String(fields.get("email") || "").trim();
+    const inquiry = String(fields.get("inquiry") || "").trim();
+    const message = String(fields.get("message") || "").trim();
+
     setSending(true);
     setStatus("");
+
     try {
-      const response = await fetch("https://formsubmit.co/ajax/" + email, {
-        method: "POST",
-        body: payload,
-        headers: { Accept: "application/json" }
-      });
-      const result = await response.json();
-      if (!response.ok || result.success === false || result.success === "false") {
-        throw new Error("Submission failed");
+      let useFormSubmit = import.meta.env.DEV;
+      if (!useFormSubmit) {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({ name, email: senderEmail, inquiry, message, website: "" }),
+        });
+        const result = await response.json().catch(() => ({}));
+        if (response.status === 503 && result.code === "EMAIL_NOT_CONFIGURED") {
+          // Keep the existing contact flow working until Resend is configured.
+          useFormSubmit = true;
+        } else if (!response.ok || result.success !== true) {
+          throw new Error(result.error || "Message could not be sent.");
+        }
       }
-      setStatus("Thanks for reaching out! Your message has been submitted.");
+
+      if (useFormSubmit) {
+        const response = await fetch("https://formsubmit.co/ajax/" + email, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            name, email: senderEmail, inquiry, message,
+            _subject: "New portfolio inquiry", _captcha: "false",
+          }),
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || (result.success !== true && result.success !== "true")) {
+          throw new Error(result.message || "Contact service did not accept your message.");
+        }
+        setStatus("Your message was submitted. If you don't hear back, please contact me directly by email.");
+      } else {
+        setStatus("Your message has been accepted for email delivery. Thanks for reaching out!");
+      }
       form.reset();
-    } catch {
-      setStatus("The form is unavailable right now. Please email me directly using the address on the left.");
+    } catch (error) {
+      setStatus(error?.message || "Your message could not be sent. Please use the email address on the left.");
     } finally {
       setSending(false);
     }
   }
+
   return (
     <section id="contact" className="contact-section">
       <div className="shell">
