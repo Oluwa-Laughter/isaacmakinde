@@ -12,6 +12,7 @@ const email = "ismakinde@gmail.com";
 const socials = [
   { name: "GitHub", url: "https://github.com/Oluwa-Laughter", icon: FiGithub },
   { name: "LinkedIn", url: "https://linkedin.com/in/isaacmakinde", icon: FiLinkedin },
+  { name: "Telegram", url: "https://t.me/isaacmakinde", icon: FiSend },
   { name: "X / Twitter", url: "https://x.com/isaacmakinde_", icon: FiArrowUpRight },
 ];
 const projects = [
