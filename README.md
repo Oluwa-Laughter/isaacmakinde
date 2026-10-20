@@ -1,42 +1,36 @@
-# Isaac Makinde - Personal Portfolio Website
+# Isaac Makinde — Portfolio
 
-![Isaac Makinde Portfolio Screenshot](./public/cover.png)
-
-Welcome to my personal portfolio! This project showcases my frontend development skills and projects I've worked on. Feel free to explore the different sections to learn more about me and my work.
-
-## Technologies Used
-
-- React.js: A popular JavaScript library for building user interfaces.
-- Tailwind CSS: A utility-first CSS framework for rapidly styling web applications.
-- Framer Motion: A motion library for creating smooth animations and transitions.
-- React Icons: A library providing a wide range of icons for your projects.
+A monochrome, editorial one-page portfolio built with **React, Vite, Tailwind CSS and Framer Motion**.
 
 ## Features
 
-- Responsive design: The portfolio is fully responsive to ensure a seamless experience on different devices.
-- Smooth animations: Framer Motion is used to add elegant animations and transitions.
-- Project showcase: A dedicated section to showcase my projects with descriptions and links.
-- Contact information: Users can easily get in touch with me through provided contact details.
+- Responsive layout with accessible mobile navigation
+- Persistent black/white theme switcher
+- Motion-based section reveals with reduced-motion support
+- Selected projects and roles sourced from Isaac's frontend CV
+- Email, LinkedIn, GitHub, X, WhatsApp, and working copy-email action
+- Print-friendly résumé at \`/resume.html\`
+- Semantic sections, skip link, SEO metadata and keyboard focus styles
 
-## Installation and Setup
+## Run locally
 
-1.  Fork
-2.  Clone the forked repository to your local machine using `git clone`.
-3.  Navigate to the project directory: `cd isaacmakinde`.
-4.  Install project dependencies using `npm install`.
-5.  Start the development server: `npm run dev`.
-6.  Open your web browser and navigate to `http://localhost:5173` to view the portfolio.
+\`\`\`bash
+npm ci
+npm run dev
+npm run lint
+npm run build
+\`\`\`
 
-## Usage
+Visit http://localhost:5173. Built output is written to \`dist/\`.
 
-Feel free to customize this portfolio to showcase your own projects and skills. Update the project descriptions, images, and links to match your work. Shout out is important too.
+## Updating content
+
+Edit \`src/App.jsx\` to update the projects, work history, skills, and social links. Visual styling and responsive breakpoints are in \`src/index.css\`. The original CV-derived résumé view is in \`public/resume.html\`.
+
+## Deployment
+
+The repository is configured for Vercel. Build command: \`npm run build\`. Output directory: \`dist\`.
 
 ## Contact
 
-If you have any questions or would like to get in touch, you can reach me at:
-
-- Email: ismakinde@gmail.com
-- Linkedin: [Isaac Makinde](https://www.linkedin.com/in/isaacmakinde/)
-- X (Formerly Twitter): [isaacmakinde](https://twitter.com/isaacmakinde_)
-- GitHub: [Oluwa-Laughter](https://github.com/Oluwa-Laughter)
-- Portfolio: [Isaac Makinde](https://isaacmakinde.vercel.app)
+[ismakinde@gmail.com](mailto:ismakinde@gmail.com) · [LinkedIn](https://linkedin.com/in/isaacmakinde) · [GitHub](https://github.com/Oluwa-Laughter)
