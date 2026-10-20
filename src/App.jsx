@@ -5,7 +5,6 @@ import {
   FiGithub, FiLinkedin, FiMail, FiMenu, FiMoon, FiSun, FiX, FiSend, FiCode
 } from "react-icons/fi";
 
-
 import { SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiFramer, SiRedux, SiSupabase, SiFirebase, SiSanity, SiFigma, SiGit, SiVercel, SiNodedotjs } from "react-icons/si";
 
 const email = "ismakinde@gmail.com";
@@ -322,7 +321,7 @@ function Contact() {
           <Reveal delay={0.17}>
             <form className="contact-form" onSubmit={submit}>
               <input type="hidden" name="_subject" value="New inquiry from portfolio" />
-              <input type="hidden" name="_captcha" value="true" />
+              <input type="hidden" name="_captcha" value="false" />
               <div className="honeypot" aria-hidden="true"><label>Leave empty<input type="text" name="_honey" tabIndex={-1} autoComplete="off" /></label></div>
               <div className="contact-fields">
                 <label>Your name <input name="name" required maxLength={100} autoComplete="name" placeholder="Your name" /></label>
