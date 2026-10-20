@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   FiArrowDown, FiArrowRight, FiArrowUpRight, FiCheck, FiCopy,
-  FiGithub, FiLinkedin, FiMail, FiMenu, FiMoon, FiSun, FiX
+  FiGithub, FiLinkedin, FiMail, FiMenu, FiMoon, FiSun, FiX, FiSend, FiCode
 } from "react-icons/fi";
-import portrait from "./assets/isaac-hero.png";
+
+
+import { SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiFramer, SiRedux, SiSupabase, SiFirebase, SiSanity, SiFigma, SiGit, SiVercel, SiNodedotjs } from "react-icons/si";
 
 const email = "ismakinde@gmail.com";
 const socials = [
@@ -14,52 +16,40 @@ const socials = [
 ];
 const projects = [
   {
-    number: "01", title: "Lumina", type: "Clean energy platform", year: "2026",
-    description: "A more intuitive path to clean energy, from appliance assessment and system sizing to financing and installation workflows.",
-    stack: ["Next.js", "TypeScript", "React Query", "Zod"],
-    live: "https://luminavs.vercel.app/", source: null, visual: "lumina"
-  },
-  {
-    number: "02", title: "Komtal", type: "Business & talent platform", year: "2025",
-    description: "A multi-page experience for talent acquisition, business consulting and company reviews, backed by an editable headless CMS.",
-    stack: ["Next.js", "React", "Sanity", "Framer Motion"],
-    live: "https://komtal.com.ng", source: null, visual: "komtal"
-  },
-  {
-    number: "03", title: "Kanban", type: "Full-stack task manager", year: "2026",
-    description: "Boards, tasks and accessible drag-and-drop interactions, with account-based persistence and a carefully considered interface.",
+    number: "01", title: "Kanban", type: "Full-stack task manager", year: "2026",
+    description: "A full-stack task management app with accessible drag and drop, validated workflows, authentication and persistent boards.",
     stack: ["Next.js 16", "TypeScript", "Supabase", "dnd-kit"],
     live: "https://kanban-task-management-umber.vercel.app",
     source: "https://github.com/Oluwa-Laughter/kanban-task-management", visual: "kanban"
   },
   {
-    number: "04", title: "Klimate", type: "Weather application", year: "2026",
-    description: "A responsive weather companion with city search, forecast charts, cached API data and a polished dark mode.",
+    number: "02", title: "Klimate", type: "Weather application", year: "2026",
+    description: "Live weather forecasts with city search, interactive charts, smart query caching and polished light and dark themes.",
     stack: ["React", "TypeScript", "TanStack Query", "Recharts"],
     live: "https://klimate-iota.vercel.app",
     source: "https://github.com/Oluwa-Laughter/klimate", visual: "klimate"
   },
   {
-    number: "05", title: "iM-Store", type: "E-commerce experience", year: "2024",
-    description: "An e-commerce storefront with discovery, filtering, authentication and cart management across a responsive shopping flow.",
-    stack: ["React", "Redux", "Tailwind CSS", "Firebase"],
+    number: "03", title: "iM-Store", type: "E-commerce experience", year: "2024",
+    description: "An e-commerce experience with product browsing, filtering, shopping cart and checkout flows powered by a Node.js API.",
+    stack: ["React", "Redux", "Tailwind CSS", "Node.js"],
     live: "https://imstore.vercel.app",
     source: "https://github.com/Oluwa-Laughter/iM-store", visual: "store"
   }
 ];
 const experience = [
   {
-    company: "Lumina", role: "Frontend Engineer", time: "May 2026 — Present",
+    company: "Lumina", role: "Frontend Engineer", time: "May 2026 to present",
     summary: "Building the customer and installer experiences for a Nigerian clean-energy platform, including onboarding, energy assessment, system sizing and financing workflows.",
     tags: ["Next.js", "TypeScript", "TanStack Query", "Zod"]
   },
   {
-    company: "Komtal Business Consult", role: "Frontend Engineer", time: "Aug 2025 — Present",
+    company: "Komtal Business Consult", role: "Frontend Engineer", time: "August 2025 to present",
     summary: "Built the business platform from the ground up, migrated it to Next.js 15 and React 19, and integrated Sanity for stakeholder-managed content.",
     tags: ["Next.js", "React", "Sanity", "Framer Motion"]
   },
   {
-    company: "Independent / Freelance", role: "Frontend Developer", time: "Sep 2023 — Present",
+    company: "Independent / Freelance", role: "Frontend Developer", time: "September 2023 to present",
     summary: "Shipped 10+ responsive projects, integrating third-party APIs and backend services while improving interface quality, accessibility and performance.",
     tags: ["React", "JavaScript", "Tailwind CSS", "REST APIs"]
   }
@@ -72,6 +62,7 @@ const skills = [
 const navItems = [
   { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" }
 ];
@@ -94,19 +85,7 @@ function Reveal({ children, className = "", delay = 0 }) {
 function ProjectVisual({ visual, title }) {
   return (
     <div className={"project-visual visual-" + visual} aria-label={"Stylized visual for " + title} role="img">
-      <div className="visual-top"><span>IM — SELECTED WORK</span><span>↗</span></div>
-      {visual === "lumina" && (
-        <div className="solar-art">
-          <div className="solar-orbit orbit-one" /><div className="solar-orbit orbit-two" />
-          <div className="solar-sun" /><span className="solar-caption">ENERGY, REIMAGINED.</span>
-        </div>
-      )}
-      {visual === "komtal" && (
-        <div className="komtal-art">
-          <span className="komtal-mark">K.</span><div className="komtal-title">Better people.<br />Better business.</div>
-          <div className="komtal-stripe"><span>GROW</span><span>CONNECT</span><span>BUILD</span></div>
-        </div>
-      )}
+      <div className="visual-top"><span>IM / SELECTED WORK</span><span>↗</span></div>
       {visual === "kanban" && (
         <div className="kanban-art">
           {["To do", "In progress", "Done"].map((column, i) => (
@@ -129,7 +108,7 @@ function ProjectVisual({ visual, title }) {
       {visual === "store" && (
         <div className="store-art">
           <div className="store-object one" /><div className="store-object two" />
-          <div className="store-caption">EVERYDAY<br />ESSENTIALS<span>iM—STORE</span></div>
+          <div className="store-caption">EVERYDAY<br />ESSENTIALS<span>iM-STORE</span></div>
         </div>
       )}
       <div className="visual-bottom"><span>{title.toUpperCase()}</span><span>PROJECT / 2026</span></div>
@@ -147,7 +126,7 @@ function Header({ theme, onThemeToggle }) {
   return (
     <header className="site-header">
       <div className="shell header-inner">
-        <a href="#top" className="wordmark" aria-label="Isaac Makinde — home">im<span>.</span></a>
+        <a href="#top" className="wordmark" aria-label="Isaac Makinde home">im<span>.</span></a>
         <nav className="desktop-links" aria-label="Main navigation">
           {navItems.map(item => <a key={item.href} href={item.href}>{item.label}</a>)}
         </nav>
@@ -157,7 +136,7 @@ function Header({ theme, onThemeToggle }) {
             title={theme === "light" ? "Dark mode" : "Light mode"}>
             {theme === "light" ? <FiMoon /> : <FiSun />}
           </button>
-          <a href="mailto:ismakinde@gmail.com?subject=Let%27s%20work%20together"
+          <a href="#contact"
             className="nav-contact">Let&apos;s talk <FiArrowUpRight /></a>
           <button className="menu-button" type="button" onClick={() => setOpen(!open)}
             aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}
@@ -183,7 +162,7 @@ function Hero() {
         <Reveal><div className="eyebrow"><span className="status-dot" /> ISAAC MAKINDE <span className="eyebrow-rule" /> FRONTEND ENGINEER</div></Reveal>
         <Reveal delay={0.08}><h1>Thoughtful<br />interfaces.<br /><em>Real impact.</em></h1></Reveal>
         <Reveal delay={0.16}>
-          <p className="hero-lede">I turn complex ideas into intuitive, accessible digital experiences — crafted with React, Next.js, TypeScript and a close eye for the details.</p>
+          <p className="hero-lede">I design and build responsive, accessible and scalable interfaces with React, Next.js and TypeScript. From Figma to production, I bring thoughtful experiences to life.</p>
         </Reveal>
         <Reveal delay={0.23}><div className="hero-buttons">
           <a className="button button-primary" href="#work">Explore my work <FiArrowUpRight /></a>
@@ -254,8 +233,8 @@ function About() {
           <div className="about-symbol" aria-hidden="true">✳</div>
         </Reveal>
         <Reveal delay={0.1} className="about-copy">
-          <p>I&apos;m Isaac, a frontend-focused software engineer who enjoys making the complex feel simple. I care about the intersection of clean engineering, usable design and the small interactions that make a product memorable.</p>
-          <p>I&apos;ve worked across clean energy, consulting, commerce and productivity — building responsive experiences, connecting them to real data and getting them ready for production.</p>
+          <p>I&apos;m Isaac, a Frontend Engineer who enjoys making the complex feel simple. I care about the intersection of clean engineering, usable design and the small interactions that make a product memorable.</p>
+          <p>I build production-ready interfaces, scalable application state and data layers, and integrations with REST APIs and headless content systems. My work spans clean energy, consulting, commerce and productivity.</p>
           <p>My background in Mathematics at the University of Lagos informs how I approach problems: with structure, curiosity and a bias for clarity.</p>
           <div className="about-meta"><span>10+<small>PROJECTS SHIPPED</small></span><span>2023<small>BUILDING SINCE</small></span><span>LAGOS<small>BASED IN NIGERIA</small></span></div>
         </Reveal>
@@ -338,10 +317,10 @@ export default function App() {
     <>
       <a className="skip-link" href="#work">Skip to main content</a>
       <Header theme={theme} onThemeToggle={() => setTheme(current => current === "light" ? "dark" : "light")} />
-      <main><Hero /><Work /><About /><Experience /><Toolkit /><Contact /></main>
+      <main><Hero /><Work /><About /><Toolkit /><Experience /><Contact /></main>
       <footer className="site-footer shell">
         <a href="#top" className="footer-logo" aria-label="Back to top">im.</a>
-        <span>© {new Date().getFullYear()} ISAAC MAKINDE · BUILT WITH INTENTION.</span>
+        <span>© {new Date().getFullYear()} ISAAC MAKINDE · FRONTEND ENGINEER</span>
         <a href="#top">BACK TO TOP <FiArrowRight /></a>
       </footer>
     </>
