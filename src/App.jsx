@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
-  FiArrowDown, FiArrowRight, FiArrowUpRight, FiCheck, FiCopy,
+  FiArrowDown, FiArrowRight, FiArrowUpRight,
   FiGithub, FiLinkedin, FiMail, FiMenu, FiMoon, FiSun, FiX, FiSend, FiCode
 } from "react-icons/fi";
 
@@ -280,30 +280,70 @@ function Toolkit() {
 }
 
 function Contact() {
-  const [copied, setCopied] = useState(false);
-  async function copyEmail() {
+  const [status, setStatus] = useState("");
+  const [sending, setSending] = useState(false);
+  async function submit(event) {
+    event.preventDefault();
+    if (sending) return;
+    const form = event.currentTarget;
+    const payload = new FormData(form);
+    if (payload.get("_honey")) return;
+    setSending(true);
+    setStatus("");
     try {
-      await navigator.clipboard.writeText(email);
-      setCopied(true);
+      const response = await fetch("https://formsubmit.co/ajax/" + email, {
+        method: "POST",
+        body: payload,
+        headers: { Accept: "application/json" }
+      });
+      const result = await response.json();
+      if (!response.ok || result.success === false || result.success === "false") {
+        throw new Error("Submission failed");
+      }
+      setStatus("Thanks for reaching out! Your message has been submitted.");
+      form.reset();
     } catch {
-      window.location.href = "mailto:" + email;
+      setStatus("The form is unavailable right now. Please email me directly using the address on the left.");
+    } finally {
+      setSending(false);
     }
   }
   return (
     <section id="contact" className="contact-section">
       <div className="shell">
-        <Reveal><div className="contact-top"><span className="section-kicker"><span>05</span> GET IN TOUCH</span><span>HAVE A PROJECT IN MIND?</span></div></Reveal>
-        <Reveal delay={0.08}><h2>Let&apos;s make<br /><em>something good.</em></h2></Reveal>
-        <Reveal delay={0.14}><p>Have an opportunity, an idea, or just want to say hello? My inbox is open. I&apos;d love to hear what you&apos;re working on.</p></Reveal>
-        <Reveal delay={0.2}><div className="contact-actions">
-          <a className="contact-main-link" href="mailto:ismakinde@gmail.com?subject=Hello%20Isaac%20%E2%80%94%20Let%27s%20connect">Start a conversation <FiArrowUpRight /></a>
-          <button className="copy-email" type="button" onClick={copyEmail} aria-label="Copy email address">
-            {copied ? <FiCheck /> : <FiCopy />} {copied ? "Email copied" : email}
-          </button>
-        </div></Reveal>
-        <Reveal delay={0.24}><div className="contact-socials">
-          {socials.map(({ name, url, icon: Icon }) => <a key={name} href={url} target="_blank" rel="noreferrer">{<Icon />} {name} <FiArrowUpRight /></a>)}
-          <a href="https://wa.me/2348053744603" target="_blank" rel="noreferrer"><FiMail /> WhatsApp <FiArrowUpRight /></a>
+        <Reveal><div className="contact-top"><span className="section-kicker"><span>05</span> GET IN TOUCH</span><span>HAVE AN IDEA IN MIND?</span></div></Reveal>
+        <Reveal delay={0.08}><h2>Let's build<br /><em>something great.</em></h2></Reveal>
+        <div className="contact-layout">
+          <Reveal delay={0.12} className="contact-intro">
+            <p>Hiring for a frontend role, planning a project or looking to collaborate? I'd love to hear about it. Send me a message and let's connect.</p>
+            <a className="contact-direct" href={"mailto:" + email}><FiMail aria-hidden="true" />{email}<FiArrowUpRight aria-hidden="true" /></a>
+          </Reveal>
+          <Reveal delay={0.17}>
+            <form className="contact-form" onSubmit={submit}>
+              <input type="hidden" name="_subject" value="New inquiry from portfolio" />
+              <input type="hidden" name="_captcha" value="true" />
+              <div className="honeypot" aria-hidden="true"><label>Leave empty<input type="text" name="_honey" tabIndex={-1} autoComplete="off" /></label></div>
+              <div className="contact-fields">
+                <label>Your name <input name="name" required maxLength={100} autoComplete="name" placeholder="Your name" /></label>
+                <label>Your email <input type="email" name="email" required maxLength={160} autoComplete="email" placeholder="you@company.com" /></label>
+              </div>
+              <label>What is this about?
+                <select name="inquiry" required defaultValue="">
+                  <option value="" disabled>Select an option</option>
+                  <option>Frontend opportunity</option>
+                  <option>Project collaboration</option>
+                  <option>Freelance work</option>
+                  <option>Just saying hello</option>
+                </select>
+              </label>
+              <label>Your message <textarea name="message" required minLength={10} maxLength={3000} rows={5} placeholder="Tell me a little about your project or opportunity..." /></label>
+              <button type="submit" className="contact-submit" disabled={sending}>{sending ? "Sending..." : "Send message"} <FiSend aria-hidden="true" /></button>
+              <p className="form-status" role="status" aria-live="polite">{status}</p>
+            </form>
+          </Reveal>
+        </div>
+        <Reveal delay={0.2}><div className="contact-socials">
+          {socials.map(({ name, url, icon: Icon }) => <a key={name} href={url} target="_blank" rel="noopener noreferrer"><Icon aria-hidden="true" /> {name} <FiArrowUpRight aria-hidden="true" /></a>)}
         </div></Reveal>
       </div>
     </section>
