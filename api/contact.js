@@ -87,6 +87,8 @@ export async function POST(request) {
     return json({ success: false, error: "Please check your contact details and message." }, 400);
   }
 
+  // Keep user-provided names from altering the email header structure.
+  const replyName = name.replace(/[\r\n<>"]/g, " ").replace(/\s+/g, " ").trim();
   const to = process.env.CONTACT_TO_EMAIL || "ismakinde@gmail.com";
   const subject = "Portfolio inquiry: " + inquiry;
   const content = [
@@ -110,7 +112,7 @@ export async function POST(request) {
       body: JSON.stringify({
         from: process.env.RESEND_FROM_EMAIL,
         to: [to],
-        reply_to: email,
+        reply_to: replyName + " <" + email + ">",
         subject,
         text: content,
       }),
