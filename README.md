@@ -7,10 +7,11 @@ A minimal, responsive black-and-white portfolio built with React, Vite, Tailwind
 - Light and dark themes with remembered preferences
 - Responsive navigation and accessible reduced-motion transitions
 - Animated abstract monogram instead of a profile photograph
-- Independent projects: Kanban, Klimate, and iM-Store
+- Four selected projects: Kanban, Klimate, iM-Store, and Rock Paper Scissors; other repositories remain accessible from the GitHub link
 - Technology skills with icons, followed by professional experience at Lumina, Komtal and freelance
 - Telegram, LinkedIn, GitHub and X social links
-- Contact form with validation, delivery status, a Resend-ready backend and a FormSubmit fallback
+- Contact form with validation, personalized confirmation and an expected reply within 24 hours; Resend backend with FormSubmit fallback
+- Four real application screenshots under `public/projects/`, optimized as WebP for the responsive gallery
 - Larger-text, mobile-friendly CV-aligned résumé at `/resume.html`, with compact print styles
 
 ## Contact form and Resend setup
