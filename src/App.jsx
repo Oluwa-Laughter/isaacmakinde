@@ -321,11 +321,9 @@ function Contact() {
         if (!response.ok || (result.success !== true && result.success !== "true")) {
           throw new Error(result.message || "Contact service did not accept your message.");
         }
-        setStatus("Your message was submitted. If you don't hear back, please contact me directly by email.");
-      } else {
-        setDelivered(true);
-        setStatus("Thanks, " + name + "! Your message is in my inbox. I\'ll get back to you within 24 hours, usually sooner.");
       }
+      setDelivered(true);
+      setStatus("Thanks, " + name + "! Your message has reached my inbox. I'll reply within 24 hours, often sooner.");
       form.reset();
     } catch (error) {
       setStatus(error?.message || "Your message could not be sent. Please use the email address on the left.");
