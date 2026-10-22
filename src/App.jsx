@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
-  FiArrowDown, FiArrowRight, FiArrowUpRight,
+  FiArrowDown, FiArrowRight, FiArrowUpRight, FiCheck,
   FiGithub, FiLinkedin, FiMail, FiMenu, FiMoon, FiSun, FiX, FiSend, FiCode
 } from "react-icons/fi";
 
@@ -17,24 +17,35 @@ const socials = [
 const projects = [
   {
     number: "01", title: "Kanban", type: "Full-stack task manager", year: "2026",
-    description: "A full-stack task management app with accessible drag and drop, validated workflows, authentication and persistent boards.",
+    description: "An intuitive task management experience with multiple boards, draggable tasks and a clean, responsive workspace.",
     stack: ["Next.js 16", "TypeScript", "Supabase", "dnd-kit"],
     live: "https://kanban-task-management-umber.vercel.app",
-    source: "https://github.com/Oluwa-Laughter/kanban-task-management", visual: "kanban"
+    source: "https://github.com/Oluwa-Laughter/kanban-task-management",
+    image: "/projects/kanban.webp"
   },
   {
-    number: "02", title: "Klimate", type: "Weather application", year: "2026",
-    description: "Live weather forecasts with city search, interactive charts, smart query caching and polished light and dark themes.",
+    number: "02", title: "Klimate", type: "Weather dashboard", year: "2026",
+    description: "An elegant weather dashboard with local conditions, forecast visualizations, location search and thoughtfully designed data cards.",
     stack: ["React", "TypeScript", "TanStack Query", "Recharts"],
     live: "https://klimate-iota.vercel.app",
-    source: "https://github.com/Oluwa-Laughter/klimate", visual: "klimate"
+    source: "https://github.com/Oluwa-Laughter/klimate",
+    image: "/projects/klimate.webp"
   },
   {
-    number: "03", title: "iM-Store", type: "E-commerce experience", year: "2024",
-    description: "An e-commerce experience with product browsing, filtering, shopping cart and checkout flows powered by a Node.js API.",
+    number: "03", title: "iM-Store", type: "E-commerce storefront", year: "2024",
+    description: "A responsive e-commerce storefront featuring product discovery, category browsing, authentication and shopping-cart interactions.",
     stack: ["React", "Redux", "Tailwind CSS", "Node.js"],
     live: "https://imstore.vercel.app",
-    source: "https://github.com/Oluwa-Laughter/iM-store", visual: "store"
+    source: "https://github.com/Oluwa-Laughter/iM-store",
+    image: "/projects/im-store.webp"
+  },
+  {
+    number: "04", title: "Rock Paper Scissors", type: "Interactive browser game", year: "2024",
+    description: "A playful, responsive take on Rock Paper Scissors Lizard Spock. Challenge the computer and keep track of your score.",
+    stack: ["React", "React Router", "Tailwind CSS", "Vite"],
+    live: "https://isaac-rps-game.netlify.app/",
+    source: "https://github.com/Oluwa-Laughter/rock-paper-scissors",
+    image: "/projects/rock-paper-scissors.webp"
   }
 ];
 const experience = [
@@ -88,36 +99,18 @@ function Reveal({ children, className = "", delay = 0 }) {
   );
 }
 
-function ProjectVisual({ visual, title }) {
+function ProjectVisual({ project }) {
   return (
-    <div className={"project-visual visual-" + visual} aria-label={"Stylized visual for " + title} role="img">
-      <div className="visual-top"><span>IM / SELECTED WORK</span><span>↗</span></div>
-      {visual === "kanban" && (
-        <div className="kanban-art">
-          {["To do", "In progress", "Done"].map((column, i) => (
-            <div className="kanban-column" key={column}>
-              <span>{column}<b>{i === 0 ? "03" : "02"}</b></span>
-              <div className="kanban-task"><i /><i /></div><div className="kanban-task short"><i /><i /></div>
-              {i === 0 && <div className="kanban-task mini"><i /></div>}
-            </div>
-          ))}
-        </div>
-      )}
-      {visual === "klimate" && (
-        <div className="weather-art">
-          <span className="weather-city">FORECAST / YOUR CITY</span>
-          <span className="weather-temp">24<span>°</span></span>
-          <div className="weather-wave"><i /><i /><i /><i /><i /><i /><i /><i /></div>
-          <span className="weather-foot">A CLEARER OUTLOOK →</span>
-        </div>
-      )}
-      {visual === "store" && (
-        <div className="store-art">
-          <div className="store-object one" /><div className="store-object two" />
-          <div className="store-caption">EVERYDAY<br />ESSENTIALS<span>iM-STORE</span></div>
-        </div>
-      )}
-      <div className="visual-bottom"><span>{title.toUpperCase()}</span><span>PROJECT / 2026</span></div>
+    <div className="project-shot">
+      <img
+        src={project.image}
+        alt={project.title + " application interface screenshot"}
+        width="880"
+        height="504"
+        loading="lazy"
+        decoding="async"
+      />
+      <div className="project-shot-label"><span>PROJECT {project.number}</span><span>LIVE EXPERIENCE</span></div>
     </div>
   );
 }
@@ -205,13 +198,13 @@ function Work() {
     <section id="work" className="section shell work-section">
       <SectionHeader number="01" label="SELECTED WORK" heading={<>Some things<br /><em>I&apos;ve built.</em></>}
         description="A selection of digital products shaped by usability, performance and an obsession with getting the little things right." />
-      <div className="project-grid">
+      <div className="project-grid project-grid--screenshots">
         {projects.map((project, index) => (
-          <Reveal className={"project-card " + (index === 0 ? "project-featured" : "")} key={project.title} delay={index % 2 === 0 ? 0 : 0.09}>
+          <Reveal className="project-card" key={project.title} delay={index % 2 === 0 ? 0 : 0.09}>
             <motion.article whileHover={{ y: -4 }} transition={{ duration: 0.23 }} className="project-article">
               <a className="project-image-link" href={project.live} target="_blank" rel="noreferrer"
                 aria-label={"Visit " + project.title + " live website"}>
-                <ProjectVisual visual={project.visual} title={project.title} />
+                <ProjectVisual project={project} />
                 <span className="project-image-arrow"><FiArrowUpRight /></span>
               </a>
               <div className="project-info">
@@ -227,7 +220,7 @@ function Work() {
           </Reveal>
         ))}
       </div>
-      <Reveal className="work-more"><a href="https://github.com/Oluwa-Laughter?tab=repositories" target="_blank" rel="noreferrer">More on GitHub <FiArrowUpRight /></a></Reveal>
+      <Reveal className="work-more"><a href="https://github.com/Oluwa-Laughter?tab=repositories" target="_blank" rel="noreferrer">Explore more projects on GitHub <FiArrowUpRight /></a></Reveal>
     </section>
   );
 }
@@ -282,6 +275,7 @@ function Toolkit() {
 function Contact() {
   const [status, setStatus] = useState("");
   const [sending, setSending] = useState(false);
+  const [delivered, setDelivered] = useState(false);
   async function submit(event) {
     event.preventDefault();
     if (sending) return;
@@ -294,6 +288,7 @@ function Contact() {
     const message = String(fields.get("message") || "").trim();
 
     setSending(true);
+    setDelivered(false);
     setStatus("");
 
     try {
@@ -328,7 +323,8 @@ function Contact() {
         }
         setStatus("Your message was submitted. If you don't hear back, please contact me directly by email.");
       } else {
-        setStatus("Your message has been accepted for email delivery. Thanks for reaching out!");
+        setDelivered(true);
+        setStatus("Thanks, " + name + "! Your message is in my inbox. I\'ll get back to you within 24 hours, usually sooner.");
       }
       form.reset();
     } catch (error) {
@@ -368,7 +364,7 @@ function Contact() {
               </label>
               <label>Your message <textarea name="message" required minLength={10} maxLength={3000} rows={5} placeholder="Tell me a little about your project or opportunity..." /></label>
               <button type="submit" className="contact-submit" disabled={sending}>{sending ? "Sending..." : "Send message"} <FiSend aria-hidden="true" /></button>
-              <p className="form-status" role="status" aria-live="polite">{status}</p>
+              <div className={delivered ? "form-status form-status--success" : "form-status"} role="status" aria-live="polite">{delivered && <FiCheck aria-hidden="true" />}<span>{status}</span></div>
             </form>
           </Reveal>
         </div>
