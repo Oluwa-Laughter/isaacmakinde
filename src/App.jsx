@@ -16,7 +16,7 @@ const socials = [
 ];
 const projects = [
   {
-    number: "01", title: "Kanban", type: "Full-stack task manager", year: "2026",
+    title: "Kanban", type: "Full-stack task manager",
     description: "An intuitive task management experience with multiple boards, draggable tasks and a clean, responsive workspace.",
     stack: ["Next.js 16", "TypeScript", "Supabase", "dnd-kit"],
     live: "https://kanban-task-management-umber.vercel.app",
@@ -24,7 +24,7 @@ const projects = [
     image: "/projects/kanban.webp"
   },
   {
-    number: "02", title: "Klimate", type: "Weather dashboard", year: "2026",
+    title: "Klimate", type: "Weather dashboard",
     description: "An elegant weather dashboard with local conditions, forecast visualizations, location search and thoughtfully designed data cards.",
     stack: ["React", "TypeScript", "TanStack Query", "Recharts"],
     live: "https://klimate-iota.vercel.app",
@@ -32,7 +32,7 @@ const projects = [
     image: "/projects/klimate.webp"
   },
   {
-    number: "03", title: "iM-Store", type: "E-commerce storefront", year: "2024",
+    title: "iM-Store", type: "E-commerce storefront",
     description: "A responsive e-commerce storefront featuring product discovery, category browsing, authentication and shopping-cart interactions.",
     stack: ["React", "Redux", "Tailwind CSS", "Node.js"],
     live: "https://imstore.vercel.app",
@@ -40,7 +40,7 @@ const projects = [
     image: "/projects/im-store.webp"
   },
   {
-    number: "04", title: "Rock Paper Scissors", type: "Interactive browser game", year: "2024",
+    title: "Rock Paper Scissors", type: "Interactive browser game",
     description: "A playful, responsive take on Rock Paper Scissors Lizard Spock. Challenge the computer and keep track of your score.",
     stack: ["React", "React Router", "Tailwind CSS", "Vite"],
     live: "https://isaac-rps-game.netlify.app/",
@@ -110,7 +110,6 @@ function ProjectVisual({ project }) {
         loading="lazy"
         decoding="async"
       />
-      <div className="project-shot-label"><span>PROJECT {project.number}</span><span>LIVE EXPERIENCE</span></div>
     </div>
   );
 }
@@ -177,7 +176,6 @@ function Hero() {
           <motion.div className="abstract-monogram" initial={reduce ? false : { opacity: 0, scale: 0.84 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>IM<span>®</span></motion.div>
           <div className="abstract-caption">DESIGN × ENGINEERING<br />IDEAS INTO INTERFACES</div>
         </div>
-        <div className="portrait-under"><span>01 / GET TO KNOW ME</span><span>FRONTEND ENGINEERING / 2026</span></div>
       </Reveal>
       {!reduce && <motion.div className="hero-accent-line" initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 0.3, duration: 1.1 }} />}
     </section>
@@ -202,16 +200,15 @@ function Work() {
         {projects.map((project, index) => (
           <Reveal className="project-card" key={project.title} delay={index % 2 === 0 ? 0 : 0.09}>
             <motion.article whileHover={{ y: -4 }} transition={{ duration: 0.23 }} className="project-article">
-              <a className="project-image-link" href={project.live} target="_blank" rel="noreferrer"
+              <a className="project-image-link" href={project.live} target="_blank" rel="noopener noreferrer"
                 aria-label={"Visit " + project.title + " live website"}>
                 <ProjectVisual project={project} />
-                <span className="project-image-arrow"><FiArrowUpRight /></span>
               </a>
               <div className="project-info">
-                <div className="project-label"><span>{project.number} / {project.type}</span><span>{project.year}</span></div>
+                <p className="project-label">{project.type}</p>
                 <div className="project-title-row"><h3>{project.title}</h3><div className="project-links">
-                  <a href={project.live} target="_blank" rel="noreferrer" aria-label={"Visit " + project.title}><FiArrowUpRight /></a>
-                  {project.source && <a href={project.source} target="_blank" rel="noreferrer" aria-label={project.title + " GitHub repository"}><FiGithub /></a>}
+                  <a href={project.live} target="_blank" rel="noopener noreferrer" aria-label={"Visit " + project.title + " live website"}>Live site <FiArrowUpRight aria-hidden="true" /></a>
+                  {project.source && <a href={project.source} target="_blank" rel="noopener noreferrer" aria-label={project.title + " GitHub repository"}>Source <FiGithub aria-hidden="true" /></a>}
                 </div></div>
                 <p>{project.description}</p>
                 <div className="project-tags">{project.stack.map(tag => <span key={tag}>{tag}</span>)}</div>
