@@ -205,7 +205,7 @@ function Work() {
                 <ProjectVisual project={project} />
               </a>
               <div className="project-info">
-                <p className="project-label">{project.type}</p>
+                <div className="project-label">{project.type}</div>
                 <div className="project-title-row"><h3>{project.title}</h3><div className="project-links">
                   <a href={project.live} target="_blank" rel="noopener noreferrer" aria-label={"Visit " + project.title + " live website"}>Live site <FiArrowUpRight aria-hidden="true" /></a>
                   {project.source && <a href={project.source} target="_blank" rel="noopener noreferrer" aria-label={project.title + " GitHub repository"}>Source <FiGithub aria-hidden="true" /></a>}
