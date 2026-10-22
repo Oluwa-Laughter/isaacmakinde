@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Isaac Makinde</title>
+  <rect width="64" height="64" rx="15" fill="#141414"/>
+  <circle cx="17" cy="19" r="4" fill="#f9f9f7"/>
+  <rect x="13.5" y="29" width="7" height="22" rx="2" fill="#f9f9f7"/>
+  <path d="M29.5 49V35C29.5 30.5 31.7 28 35.6 28C40 28 42.2 31.2 42.2 35V49M42.2 35C42.2 30.5 44.5 28 48.2 28C52.2 28 54 31.2 54 35V49" fill="none" stroke="#f9f9f7" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
