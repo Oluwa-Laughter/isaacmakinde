@@ -1,31 +1,116 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Isaac Makinde | Frontend Engineer | Resume</title>
+<link rel="icon" type="image/png" sizes="64x64" href="/isaac-favicon.png?v=2">
+<link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg?v=2">
+<meta name="theme-color" content="#f4f4f1">
+<meta name="description" content="Résumé of Isaac Makinde, Frontend Engineer. Experience, technical skills and selected projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
-@page{size:letter;margin:0.47in 0.52in}
-*{box-sizing:border-box}
-body{margin:36px auto;max-width:980px;padding:48px 64px;background:#fff;color:#171717;font:17px/1.68 Georgia,"Times New Roman",serif;-webkit-text-size-adjust:100%}
-a{color:inherit;text-decoration:none}
-a:hover{text-decoration:underline}
-h1{text-align:center;font-size:38px;line-height:1.15;margin:0 0 9px;font-weight:700}
-.contact{text-align:center;line-height:1.65;font-size:14px;margin-bottom:28px;overflow-wrap:anywhere}
-h2{font-size:22px;line-height:1.3;margin:34px 0 15px;font-weight:700;border-bottom:1px solid #dedede;padding-bottom:7px}
-p{margin:9px 0 15px}
-.entry{margin:16px 0 22px}
-.entry-head{display:flex;justify-content:space-between;align-items:baseline;gap:18px;font-weight:700;font-size:17px;flex-wrap:wrap}
-.entry-sub{display:flex;justify-content:space-between;gap:18px;font-size:15px;margin-top:4px;flex-wrap:wrap}
-ul{padding-left:24px;margin:12px 0 18px}
-li{margin:7px 0}
-.skills p{margin:8px 0}
-.actions{display:flex;justify-content:flex-end;gap:10px;margin-bottom:27px}
-button,.actions a{border:1px solid #111;background:#111;color:#fff;padding:11px 17px;font:600 14px Arial,sans-serif;cursor:pointer;text-decoration:none}
-.actions a{background:#fff;color:#111}
-@media(max-width:600px){body{margin:0;padding:30px 22px;font-size:16px;line-height:1.65}h1{font-size:32px}h2{font-size:20px;margin-top:28px}.contact{font-size:12.5px}.entry-head{font-size:16px}.entry-sub{font-size:14px}.entry-head,.entry-sub{gap:6px}}
-@media print{body{margin:0;max-width:none;padding:0;font:10.6px/1.36 "Times New Roman",Georgia,serif}.actions{display:none}h1{font-size:24px;margin:0 0 3px}.contact{font-size:10px;margin-bottom:16px}h2{font-size:14px;margin:16px 0 7px;border:0;padding:0}.entry{margin:7px 0 10px}.entry-head{font-size:12px;gap:12px}.entry-sub{font-size:11px;margin-top:1px;gap:12px}p{margin:5px 0 10px}ul{padding-left:18px;margin:6px 0 10px}li{margin:3px 0}.skills p{margin:3px 0}.page-two{break-before:page;page-break-before:always;padding-top:5px}}
+  @page { size: letter; margin: .47in .52in; }
+  * { box-sizing: border-box; }
+  :root { color-scheme: light; }
+  body { margin: 0; padding: 0 24px 74px; color: #181818; background: #f4f4f1; font: 16.5px/1.74 "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 1px; }
+  a:focus-visible, button:focus-visible { outline: 3px solid #171717; outline-offset: 4px; }
+  button { font: inherit; cursor: pointer; }
+  .skip-link { position: fixed; z-index: 100; top: -90px; left: 16px; padding: 10px 16px; color: white; background: #171717; }
+  .skip-link:focus { top: 12px; }
+  .resume-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 24px; max-width: 1000px; min-height: 86px; margin: 0 auto; }
+  .resume-home { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; font-size: 13px; font-weight: 700; }
+  .resume-mark { display: grid; place-items: center; background: #151515; color: #fff; width: 46px; height: 46px; border-radius: 12px; font: 800 21px/1 "Manrope", system-ui, sans-serif; letter-spacing: -.13em; padding-right: 5px; }
+  .resume-actions { display: flex; align-items: center; gap: 12px; }
+  .resume-actions a, .resume-actions button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 11px 17px; border: 1px solid #222; font: 700 13px/1.35 "DM Sans", system-ui, sans-serif; white-space: nowrap; text-decoration: none; transition: background .2s, color .2s, transform .2s; }
+  .resume-actions a { background: transparent; color: #171717; }
+  .resume-actions button { background: #171717; color: white; }
+  .resume-actions a:hover, .resume-actions button:hover { transform: translateY(-2px); }
+  .resume-actions a:hover { background: #fff; }
+  .resume-actions button:hover { background: #3d3d3d; }
+  .resume-sheet { max-width: 1000px; margin: 0 auto; padding: clamp(28px, 6vw, 68px); background: #fff; border: 1px solid #e6e6e3; box-shadow: 0 18px 70px rgba(0,0,0,.06); }
+  header { padding-bottom: 28px; margin-bottom: 28px; border-bottom: 1px solid #d6d6d3; }
+  h1 { font: 750 clamp(34px,5vw,48px)/1.1 "Manrope", system-ui, sans-serif; letter-spacing: -.065em; margin: 0 0 10px; }
+  .resume-role { color: #5b5b58; margin: 0 0 21px; font: 750 12px/1.4 "DM Sans", system-ui, sans-serif; text-transform: uppercase; letter-spacing: .18em; }
+  .contact { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; font: normal 13.5px/1.55 "DM Sans", system-ui, sans-serif; color: #595956; overflow-wrap: anywhere; }
+  .contact a { text-decoration: underline; text-decoration-color: #aaa; text-underline-offset: 3px; }
+  h2 { font: 800 18px/1.3 "Manrope", system-ui, sans-serif; letter-spacing: -.035em; margin: 32px 0 15px; border-bottom: 1px solid #dededb; padding-bottom: 10px; }
+  p { margin: 9px 0 15px; }
+  .entry { margin: 17px 0 23px; }
+  .entry-head { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: baseline; gap: 5px 20px; font: 750 16px/1.5 "Manrope", system-ui, sans-serif; }
+  .entry-head > span:last-child { font-size: 14px; }
+  .entry-sub { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 20px; font-size: 14px; color: #646460; margin-top: 4px; }
+  ul { padding-left: 23px; margin: 10px 0 17px; }
+  li { margin: 7px 0; padding-left: 2px; }
+  li::marker { color: #777; }
+  .skills p { margin: 8px 0; }
+  @media (max-width: 620px) {
+    body { padding: 0 14px 42px; font-size: 16px; line-height: 1.7; }
+    .resume-toolbar { min-height: 76px; gap: 12px; }
+    .resume-home { gap: 8px; font-size: 12px; }
+    .resume-mark { width: 39px; height: 39px; border-radius: 11px; font-size: 19px; }
+    .resume-actions { gap: 8px; }
+    .resume-actions a, .resume-actions button { font-size: 12px; padding: 9px 10px; min-height: 42px; }
+    .resume-sheet { padding: 29px 22px; }
+    header { padding-bottom: 23px; margin-bottom: 20px; }
+    h1 { font-size: clamp(33px, 8vw, 42px); }
+    .contact { font-size: 13px; gap: 6px 12px; }
+    h2 { font-size: 18px; margin-top: 29px; }
+    .entry-head { font-size: 15px; gap: 4px 12px; }
+    .entry-head > span:last-child { font-size: 13px; }
+    .entry-sub { font-size: 13px; }
+    li { margin: 8px 0; }
+  }
+  @media (max-width: 380px) {
+    .resume-home > span:last-child { display: none; }
+    .resume-actions a, .resume-actions button { font-size: 11px; padding: 9px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
+  }
+  @media print {
+    html, body { background: #fff !important; }
+    body { margin: 0; max-width: none; padding: 0; color: #111; font: 10.5px/1.34 "Times New Roman", Georgia, serif; -webkit-font-smoothing: auto; }
+    .resume-toolbar, .skip-link { display: none !important; }
+    .resume-sheet { padding: 0; margin: 0; max-width: none; border: 0; box-shadow: none; }
+    header { margin: 0 0 13px; padding: 0; border: 0; text-align: center; }
+    h1 { font: 700 24px/1.05 "Times New Roman", Georgia, serif; letter-spacing: 0; margin: 0 0 3px; }
+    .resume-role { font: 700 10px/1.2 "Times New Roman", Georgia, serif; letter-spacing: .02em; margin: 0 0 3px; }
+    .contact { display: block; text-align: center; font: normal 9.8px/1.45 "Times New Roman", Georgia, serif; color: #111; }
+    .contact > *::after { content: " | "; }
+    .contact > *:last-child::after { content: ""; }
+    .contact a { text-decoration: none; }
+    h2 { font: 700 14px/1.2 "Times New Roman", Georgia, serif; border: 0; letter-spacing: 0; padding: 0; margin: 15px 0 7px; }
+    p { margin: 5px 0 9px; }
+    .entry { margin: 7px 0 10px; }
+    .entry-head { font: 700 12px/1.3 "Times New Roman", Georgia, serif; gap: 10px; }
+    .entry-head > span:last-child { font-size: 11px; }
+    .entry-sub { font-size: 11px; margin: 1px 0; gap: 10px; color: #111; }
+    ul { padding-left: 18px; margin: 6px 0 9px; }
+    li { margin: 3px 0; padding: 0; }
+    li::marker { color: #111; }
+    .skills p { margin: 3px 0; }
+    .page-two { break-before: page; page-break-before: always; padding-top: 4px; }
+  }
 </style></head><body>
-<div class="actions"><a href="/">Back to portfolio</a><button onclick="window.print()">Print / Save as PDF</button></div>
-<header><h1>Isaac Makinde</h1>
-<div class="contact">Lagos, Nigeria | +234 805 374 4603 | <a href="mailto:ismakinde@gmail.com">ismakinde@gmail.com</a> | <a href="https://linkedin.com/in/isaacmakinde">linkedin.com/in/isaacmakinde</a> |<br>
-<a href="https://github.com/Oluwa-Laughter">github.com/Oluwa-Laughter</a> | <a href="https://isaacmakinde.vercel.app">isaacmakinde.vercel.app</a></div></header>
+<a class="skip-link" href="#resume-content">Skip to résumé</a>
+<nav class="resume-toolbar" aria-label="Résumé navigation">
+  <a class="resume-home" href="/" aria-label="Isaac Makinde portfolio"><span class="resume-mark" aria-hidden="true">im.</span><span>Frontend Engineer</span></a>
+  <div class="resume-actions"><a href="/">← Back to portfolio</a><button type="button" onclick="window.print()">Print / save PDF ↗</button></div>
+</nav>
+<main id="resume-content" class="resume-sheet">
+<header>
+<h1>Isaac Makinde</h1>
+<p class="resume-role">Frontend Engineer</p>
+<address class="contact">
+  <span>Lagos, Nigeria</span>
+  <a href="tel:+2348053744603">+234 805 374 4603</a>
+  <a href="mailto:ismakinde@gmail.com">ismakinde@gmail.com</a>
+  <a href="https://linkedin.com/in/isaacmakinde">linkedin.com/in/isaacmakinde</a>
+  <a href="https://github.com/Oluwa-Laughter">github.com/Oluwa-Laughter</a>
+  <a href="https://isaacmakinde.vercel.app">isaacmakinde.vercel.app</a>
+</address>
+</header>
 <section><h2>Summary</h2><p>Frontend Engineer specializing in building responsive, accessible, and scalable applications with Next.js, React.js, TypeScript, and modern full-stack tooling. Skilled at translating Figma designs into polished, production-ready interfaces, architecting scalable application state and data layers, integrating headless content systems and RESTful APIs, and shipping features end-to-end from design to deployment. Proven ability to modernize codebases, design secure and maintainable system architectures, and deliver production-grade software across clean-energy, business-platform, e-commerce, and interactive domains.</p></section>
 <section><h2>Education</h2>
 <div class="entry"><div class="entry-head"><span>University of Lagos</span><span>2026</span></div>
@@ -73,4 +158,5 @@ button,.actions a{border:1px solid #111;background:#111;color:#fff;padding:11px 
 <li>Built a full-featured e-commerce SPA with product browsing, category filtering, cart management, and checkout flows, backed by a Node.js API.</li>
 <li>Implemented global state management with Redux to orchestrate cart logic, user sessions, and product data across routes, keeping UI and data layer decoupled.</li></ul></div>
 </section></div>
+</main>
 </body></html>
