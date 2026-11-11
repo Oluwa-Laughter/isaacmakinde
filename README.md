@@ -23,8 +23,8 @@ The contact form sends to `POST /api/contact` (a [Vercel Function](https://verce
 | Variable | Value |
 | --- | --- |
 | `RESEND_API_KEY` | A private Resend API key (`re_...`) |
-| `RESEND_FROM_EMAIL` | An approved sender identity on your verified domain |
-| `CONTACT_TO_EMAIL` | Optional recipient address; otherwise the server-side default is used |
+| `RESEND_FROM_EMAIL` | An approved sender such as `Isaac Portfolio <contact@your-verified-domain.com>` |
+| `CONTACT_TO_EMAIL` | Optional; defaults to `ismakinde@gmail.com` |
 
 The Resend-Vercel Marketplace integration can create the API key and inject `RESEND_API_KEY` automatically. For full production sending from a custom domain, verify the sending domain in Resend, including its requested DNS records. Use the Resend test sender only under the provider's testing restrictions. **Never add API keys to `VITE_*` variables or commit them to GitHub.**
 
@@ -32,13 +32,13 @@ The Resend-Vercel Marketplace integration can create the API key and inject `RES
 2. In Vercel, open **Project > Settings > Environment Variables**, configure `RESEND_API_KEY` and `RESEND_FROM_EMAIL` for production; optionally configure `CONTACT_TO_EMAIL`.
 3. Redeploy production so the Vercel Function receives the variables.
 4. Check `GET https://isaacmakinde.vercel.app/api/contact`: `configured` should become `true`. This is a configuration check, not an email delivery test.
-5. Submit a real test message from the portfolio. Verify the form success state, Resend delivery log, and that the message reaches your intended inbox, with Reply-To set to the visitor's email.
+5. Submit a real test message from the portfolio. Verify the form success state, Resend delivery log, and that a message actually reaches `ismakinde@gmail.com`, with Reply-To set to the visitor's email.
 
-Until the Resend environment variables are configured, `POST /api/contact` intentionally responds with `503` and code `EMAIL_NOT_CONFIGURED`; **only in that explicit case** the frontend falls back to the existing [FormSubmit](https://formsubmit.co/) AJAX submission. FormSubmit requires one-time recipient activation:
+Until the Resend environment variables are configured, `POST /api/contact` intentionally responds with `503` and code `EMAIL_NOT_CONFIGURED`; **only in that explicit case** the frontend falls back to the existing [FormSubmit](https://formsubmit.co/) AJAX submission. FormSubmit requires one-time recipient email activation:
 
 1. Send a test message on the site.
-2. Check the inbox configured for the contact form for FormSubmit's verification email and activate it.
-3. Submit another test and verify receipt.
+2. Check `ismakinde@gmail.com` for FormSubmit's verification email and activate.
+3. Submit another test and verify receipt in the inbox.
 
 A form submission response alone doesn't prove delivery. The fallback is preserved so the existing contact method isn't disabled during the migration.
 
@@ -63,20 +63,4 @@ The repository auto-deploys to Vercel on changes to `main`. Build command: `npm 
 
 ## Contact
 
-<p align="center">
-  <a href="mailto:ismakinde@gmail.com">
-    <img src="https://img.shields.io/badge/Email-Contact%20me-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email — Contact me" />
-  </a>
-  <a href="https://t.me/isaacmakinde" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/Telegram-Message%20me-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram — Message me" />
-  </a>
-  <a href="https://linkedin.com/in/isaacmakinde" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn — Connect" />
-  </a>
-  <a href="https://github.com/Oluwa-Laughter" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/GitHub-View%20profile-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub — View profile" />
-  </a>
-  <a href="https://x.com/isaacmakinde_" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/badge/X-Follow-000000?style=for-the-badge&logo=x&logoColor=white" alt="X — Follow" />
-  </a>
-</p>
+[Email](mailto:ismakinde@gmail.com) · [Telegram](https://t.me/isaacmakinde) · [LinkedIn](https://linkedin.com/in/isaacmakinde) · [GitHub](https://github.com/Oluwa-Laughter)
