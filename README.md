@@ -23,7 +23,7 @@ The contact form sends to `POST /api/contact` (a [Vercel Function](https://verce
 | Variable | Value |
 | --- | --- |
 | `RESEND_API_KEY` | A private Resend API key (`re_...`) |
-| `RESEND_FROM_EMAIL` | An approved sender such as `Isaac Portfolio <contact@your-verified-domain.com>` |
+| `RESEND_FROM_EMAIL` | An approved sender identity on your verified domain |
 | `CONTACT_TO_EMAIL` | Optional recipient address; otherwise the server-side default is used |
 
 The Resend-Vercel Marketplace integration can create the API key and inject `RESEND_API_KEY` automatically. For full production sending from a custom domain, verify the sending domain in Resend, including its requested DNS records. Use the Resend test sender only under the provider's testing restrictions. **Never add API keys to `VITE_*` variables or commit them to GitHub.**
